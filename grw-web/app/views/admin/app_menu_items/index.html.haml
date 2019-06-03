@@ -1,0 +1,83 @@
+.panel.panel-flat
+  .panel-heading
+    .heading-elements
+      %ul.list-inline.heading-text
+        %li
+          = link_to "New menu", new_admin_app_menu_item_path
+        %li
+          = link_to "Menu structure", menus_admin_app_menu_items_path
+        %li
+          = link_to "Discover", discover_admin_app_menu_items_path, data: { method: "post" }
+
+    = form_for(@search, url: admin_app_menu_items_path, html: { method: "get" }) do |f|
+      = f.label :level
+      = f.select :level, @search.levels, :include_blank => true
+      = f.label :empty_group, "No group"
+      = f.check_box :empty_group
+      = f.label :controller
+      = f.text_field :controller
+      = f.submit "Zastosuj"
+
+  .panel-body
+  .table-responsive
+    %table.table.rwc-AppMenuItemList
+      %tr
+        %th Akcja
+        %th Menu
+        %th Poz.
+        %th Wi.
+        %th Nazwa
+        %th Stat group
+        %th Stat name
+        %th Grupa
+        %th
+      - @search.result.each_key do |k|
+        %tr
+          %th(colspan="9")
+            - c = @search.result[k][0].controller
+            = c.present? ? c : "no controller"
+        - @search.result[k].each do |mi|
+          %tr.rwc-AppMenuItemList-row{ :id => dom_id(mi) }
+            = form_for mi, url: admin_app_menu_item_path(mi), html: { remote: true } do |f|
+              %td= mi.action.present? ? mi.action : "-"
+              %td
+                - if mi.level != 1
+                  = f.select :parent_id, @search.menus, { :include_blank => true }
+                - else
+                  top
+              %td= f.text_field :position, :size => 3
+              %td= f.check_box :visible
+              %td= f.text_field :name, :size => 20
+              %td= f.select :app_stat_group_id, @search.stat_groups, { include_blank: true }
+              %td= f.text_field :stat_name, :size => 20
+              %td
+                = select_tag :module_id, options_for_select(@search.modules.dup.unshift(['',nil]), mi.app_action_group.app_module_id),
+                  { :class => "rwj-AppModuleId" }
+                %br
+                = f.select :app_action_group_id, @search.action_groups(mi.app_action_group.app_module_id), {},
+                  { :class => "rwj-AppGroupSelect" }
+              %td
+                = f.submit "Save"
+                = link_to "Edit", edit_admin_app_menu_item_path(mi)
+
+:javascript
+  $(function() {
+    $(".rwj-AppModuleId").change(function() {
+      var mid = $(this).val();
+      var sid = $(this).closest("tr").find(".rwj-AppGroupSelect")[0];
+      $.getJSON('#{ groups_admin_app_menu_items_path }',
+                { 'app_module_id': mid },
+                function(j) {
+                  var options = '';
+                  for (var i = 0; i < j.length; i++) {
+                    options += '<option value="' + j[i][1] + '">' + j[i][0] + '</option>';
+                  }
+                  $(sid).html(options);
+                });
+    });
+
+    $(".rwc-AppMenuItemList input, .rwc-AppMenuItemList select").change(function() {
+      $(this).closest("tr").addClass("is-data-changed");
+    });
+  });
+

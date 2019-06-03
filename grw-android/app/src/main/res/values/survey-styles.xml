@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Survey -->
+
+    <style name="SurveyCheckboxLayout">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:onClick">checkboxClicked</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="SurveyCheckbox">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:contentDescription">checkbox</item>
+        <item name="android:focusable">false</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="SurveyCheckboxText">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">fill</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="SurveyRowLabel">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">fill</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+    </style>
+
+    <style name="SurveySpinnerText" parent="@android:style/Widget.Holo.Light.Spinner">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:onClick">spinnerClicked</item>
+    </style>
+
+    <style name="SurveyMultiline">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:autoText">true</item>
+        <item name="android:capitalize">sentences</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:inputType">textMultiLine</item>
+    </style>
+
+    <style name="SurveySectionTitle">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">fill</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

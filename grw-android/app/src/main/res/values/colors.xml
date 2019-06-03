@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryLight">#647bfd</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="grayBackground">#f0f0f0</color>
+
+    <color name="loc_warn">#ffff6464</color>
+    <color name="inst_error_message">#ffff6464</color>
+</resources>

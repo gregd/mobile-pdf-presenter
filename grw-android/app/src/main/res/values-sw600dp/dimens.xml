@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_main">8dp</dimen>
+    <dimen name="section_margin_top_size">24dp</dimen>
+    <dimen name="section_label_size">14sp</dimen>
+    <dimen name="section_body_size">16sp</dimen>
+
+    <dimen name="list_main_head_text">22sp</dimen>
+    <dimen name="list_main_body_text">18sp</dimen>
+    <dimen name="list_sec_head_text">18sp</dimen>
+    <dimen name="list_sec_body_text">16sp</dimen>
+    <dimen name="list_message_head_text">22sp</dimen>
+    <dimen name="list_message_body_text">18sp</dimen>
+
+    <dimen name="page_head_text_size">22sp</dimen>
+    <dimen name="page_body_text_size">18sp</dimen>
+    <dimen name="page_small_text_size">14sp</dimen>
+
+    <dimen name="visit_label_padding">32dp</dimen>
+
+    <dimen name="target_label_width">48dp</dimen>
+
+    <dimen name="spec_abbr_label_width">40dp</dimen>
+
+    <dimen name="loc_time_dur_size">22sp</dimen>
+
+    <dimen name="checkin_btn_size">24sp</dimen>
+    <dimen name="checkin_message_size">24sp</dimen>
+    <dimen name="checkin_map_height">480dp</dimen>
+    <dimen name="checkin_map_width">680dp</dimen>
+
+</resources>

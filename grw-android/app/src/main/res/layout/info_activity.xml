@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="@dimen/margin_main" >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_logged_as" />
+
+            <TextView
+                android:id="@+id/info_logged_as"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="" />
+        </LinearLayout>
+
+        <View
+            style="@style/VerticalSeparator" />
+
+        <Button android:text="@string/info_btn_logout"
+                android:onClick="onLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:attr/borderlessButtonStyle" />
+
+    </LinearLayout>
+
+    <View
+        style="@style/HorizontalSeparator" />
+
+    <TextView
+        android:id="@+id/info_logged_company"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="" />
+
+    <View
+        style="@style/HorizontalSeparator" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_data_sync_label" />
+
+            <TextView
+                android:id="@+id/info_data_sync"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/info_btn_sync_sep"
+            style="@style/VerticalSeparator" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
+            <Button
+                android:text="@string/info_btn_sync"
+                android:id="@+id/info_btn_sync"
+                android:onClick="onDataSync"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <ProgressBar
+                android:id="@+id/info_sync_progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                style="?android:attr/progressBarStyle" />
+
+            <TextView
+                android:id="@+id/info_sync_progress_info"
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        style="@style/HorizontalSeparator" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/info_app_version" />
+
+            <TextView
+                android:id="@+id/info_app_version"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        style="@style/HorizontalSeparator" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:text="@string/info_advanced"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1" />
+
+        <View
+            style="@style/VerticalSeparator" />
+
+        <Button
+            android:id="@+id/info_reset_agps"
+            android:text="@string/info_reset_agps"
+            android:onClick="onResetAGPS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            style="?android:attr/borderlessButtonStyle" />
+
+        <View
+            android:id="@+id/info_advanced_separator"
+            android:visibility="gone"
+            style="@style/VerticalSeparator" />
+
+        <Button
+            android:id="@+id/info_full_sync"
+            android:text="@string/info_full_sync"
+            android:onClick="onFullSync"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            style="?android:attr/borderlessButtonStyle" />
+
+        <Button
+            android:id="@+id/info_advanced_btn"
+            android:text="@string/info_advanced_btn"
+            android:onClick="onShowAdvanced"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/borderlessButtonStyle" />
+
+    </LinearLayout>
+
+    <View
+        style="@style/HorizontalSeparator" />
+
+</LinearLayout>

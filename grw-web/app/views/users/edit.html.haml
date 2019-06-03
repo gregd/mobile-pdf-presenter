@@ -1,0 +1,18 @@
+.row
+  .col-md-5
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          Edycja danych użytkownika
+      .panel-body
+        = form_for(@user) do |f|
+          = rw_hidden_back_url
+          = app_error_messages(f.object)
+          = rwf_text_field f, :first_name, autofocus: true
+          = rwf_text_field f, :last_name
+          = rwf_text_field f, :email
+          = rwf_text_field f, :phone
+          .text-right
+            = link_to "Anuluj", redirect_back_url, class: "rwc-RedirectBack btn btn-link"
+            = f.submit "Zapisz", class: "btn btn-primary"
+

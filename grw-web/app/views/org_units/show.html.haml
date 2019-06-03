@@ -1,0 +1,101 @@
+- content_for(:content_header) do
+  .page-header.page-header-default
+    .page-header-content
+      .page-title
+        .row
+          .col-md-9
+            %h4
+              %span.text-semibold= @org_unit.name
+              &nbsp;
+              = rw_address_long(@org_unit.main_address)
+
+            %div
+              = rw_collab_icon(@org_unit.collab)
+              &nbsp;
+              - @org_unit.grouped_taggings.each do |tag_group, taggings|
+                - taggings.each do |g|
+                  = g.presenter.view_as_label
+                &nbsp;
+
+          .col-md-3
+            - @org_unit.contacts.each do |c|
+              %ul.list-unstyled
+                %li= c.presenter.view_short_link
+
+      .heading-elements.not-collapsible
+        %ul.icons-list
+          %li.dropdown
+            %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+              %i.icon-menu9
+            %ul.dropdown-menu.dropdown-menu-right
+              %li.dropdown-header
+                Akcje
+              %li
+                = link_to "Edytuj", edit_org_unit_path(@org_unit)
+              %li
+                = link_to "Edytuj adres", edit_address_path(@org_unit.main_address)
+              %li.dropdown-header
+                Kontakty
+              %li
+                = link_to "Dodaj tel / email", new_contact_path(contactable_type: "OrgUnit", contactable_id: @org_unit.id)
+              %li.dropdown-header
+                Znaczniki
+              - taggable = @org_unit
+              - @org_unit.grouped_taggings.each do |tag_group, taggings|
+                %li
+                  = link_to "Edytuj #{tag_group.abbr}", taggings_edit_group_path(taggable_type: taggable.class.model_name, taggable_id: taggable, tag_group_id: tag_group)
+              %li.divider
+              %li
+                = link_to "Usuń", org_unit_path(@org_unit), method: :delete, data: { confirm: "Czy na pewno chcesz usunąć '#{@org_unit.name}'?" }
+
+.row
+  .col-sm-6
+
+    .panel.panel-flat
+      - if @org_unit.person_jobs.count == 0
+        .panel-body
+          Brak przypisanych pracowników
+      - else
+        %table.table
+          - @org_unit.person_jobs.each do |j|
+            %tr
+              %td
+                = link_to rw_person_full_name(j.person), person_path(j.person)
+              %td
+                = j.job_title.abbr
+                = j.person.person_title.abbr
+      .panel-footer
+        .heading-elements.not-collapsible
+          %ul.list-inline.heading-text.pull-right
+            %li
+              = link_to "Dodaj osobę", new_person_path(org_unit_id: @org_unit.id)
+
+  .col-sm-6
+    .panel.panel-flat
+      - if @visits.size == 0
+        .panel-body
+          Brak wizyt
+      - else
+        %table.table
+          - @visits.each do |v|
+            %tr
+              %td
+                = link_to v.activity_on, edit_planned_activity_visit_path(v)
+              %td
+                = v.validity_state
+              %td
+                = v.activity_stage
+              %td
+                - if v.active_participants_count > 0
+                  - v.activity_participants.each do |ap|
+                    = ap.person.presenter.view_name
+              %td
+                = v.comments
+
+      .panel-footer
+        .heading-elements.not-collapsible
+          %ul.list-inline.heading-text.pull-right
+            %li
+              = link_to "Zaplanuj wizytę", new_planned_activity_visit_path(org_unit_id: @org_unit.id)
+            %li
+              = link_to "Raportuj wizytę", new_reported_activity_visit_path(org_unit_id: @org_unit.id)

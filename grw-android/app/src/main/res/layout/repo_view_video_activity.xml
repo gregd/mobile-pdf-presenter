@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.grw.mobi.ui.RepoViewVideoActivity"
+    android:background="#000000"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.grw.mobi.util.ObservableVideoView
+        android:id="@+id/repo_view_video"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" >
+    </com.grw.mobi.util.ObservableVideoView>
+
+</FrameLayout>

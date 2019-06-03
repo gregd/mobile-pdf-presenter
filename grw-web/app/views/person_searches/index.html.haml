@@ -1,0 +1,106 @@
+.panel.panel-flat
+  .panel-body
+    = form_for(@search, url: person_searches_path, method: :get) do |f|
+      .rwc-SearchParams
+        .rwc-SearchParams-group
+          = f.label :collab
+          = f.select :collab, @collab_list, { include_blank: true }, { class: "form-control" }
+
+        .rwc-SearchParams-group
+          = f.text_field :query, placeholder: "imię, nazwisko", class: "form-control", autofocus: true
+
+        .rwc-SearchParams-group
+          = f.select :tags_ids, @tags, {}, { class: "form-control", multiple: true, data: { placeholder: "ze znacznikami" } }
+
+        .rwc-SearchParams-group.rwc-SearchParams-advanced{ class: @search.show_advanced? ? "" : "is-hidden" }
+          = f.select :wo_tags_ids, @wo_tags, {}, { class: "form-control", multiple: true, data: { placeholder: "bez znaczników" } }
+
+        .rwc-SearchParams-group
+          = f.select :ou_tags_ids, @ou_tags, {}, { class: "form-control", multiple: true, data: { placeholder: "firma ze znacznikami" } }
+
+        .rwc-SearchParams-group
+          = button_tag(type: 'submit', name: "commit", class: "btn btn-icon btn-primary") do
+            %i.icon-search4
+
+        .rwc-SearchParams-group
+          = button_tag(class: "btn btn-icon rwc-SearchParams-advancedBtn") do
+            %i.icon-cogs
+
+        .rwc-SearchParams-group
+          = button_tag(class: "btn btn-icon rwc-SearchParams-clearBtn") do
+            %i.icon-cross2
+
+    = form_for(@search, method: :delete, html: { class: "rwc-SearchParamsDelete" }) do
+      -#
+
+- if @search.do_search
+  .panel.panel-flat
+    - if @persons.size == 0
+      .panel-body
+        Brak osób spełniających podane kryteria
+    - else
+      %table.table.table-striped.table-hover
+        - @persons.each do |p|
+          %tr
+            %td.rwc-PersonSearch-firstName
+              = link_to p.first_name, person_path(p)
+            %td.rwc-PersonSearch-lastName
+              = link_to p.last_name, person_path(p)
+            %td
+              = link_to p.main_org_unit.name, org_unit_path(p.main_org_unit)
+            %td
+              = p.main_org_unit.main_address.presenter.view_short
+            %td
+              = rw_collab_icon(p.collab)
+              &nbsp;
+              - p.grouped_taggings.each do |tag_group, taggings|
+                - taggings.each do |g|
+                  = g.presenter.view_as_label
+                  &nbsp;
+
+      .panel-body
+        .rwc-SearchResults
+          .rwc-SearchResults-group
+            = will_paginate @persons, renderer: BootstrapPagination::Rails, class: "pagination pagination-flat", inner_window: 3
+          .rwc-SearchResults-group
+            = rw_pagination_summary(@persons)
+          .rwc-SearchResults-group
+            %a.btn.rwc-GroupActions-btn(href="#") Akcje grupowe
+
+        .rwc-SearchParams.rwc-GroupActions-list.is-hidden
+          .rwc-SearchParams-group
+            = form_for(@search, url: person_searches_path, method: :get) do |f|
+              = button_tag("Wydruk adresów", name: "mass_print", class: "btn")
+
+          .rwc-SearchParams-group
+            = form_for(@search, url: person_searches_path, method: :get) do |f|
+              = select_tag :add_tag_id, options_for_select(@tags),
+                  { class: "form-control rwc-GroupActions-addTag", data: { placeholder: "dodaj znacznik" }, include_blank: true }
+              = button_tag("Dodaj", name: "commit", class: "btn rwc-GroupActions-addTagBtn")
+
+:javascript
+  $(function() {
+    rwjSearchParams.initCommon();
+
+    rwjSearchParams.initSelect2($("#person_search_tags_ids"));
+    rwjSearchParams.initSelect2($("#person_search_wo_tags_ids"));
+    rwjSearchParams.initSelect2($("#person_search_ou_tags_ids"));
+
+    rwjSearchParams.initSelect2($(".rwc-GroupActions-addTag").first());
+
+    $(".rwc-GroupActions-btn").on("click", function(ev) {
+      ev.preventDefault();
+      $(".rwc-GroupActions-list").removeClass("is-hidden");
+      $(".rwc-GroupActions-btn").addClass("is-hidden");
+    });
+
+    $(".rwc-GroupActions-addTagBtn").on("click", function(ev) {
+      var tag = $(".rwc-GroupActions-addTag").first();
+      if (tag.val() == "") {
+        ev.preventDefault();
+        Growlyflash.warning("Wybierz znacznik do dodania");
+        return;
+      }
+    });
+
+  });

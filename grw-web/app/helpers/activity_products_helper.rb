@@ -1,0 +1,2 @@
+module ActivityProductsHelper
+end

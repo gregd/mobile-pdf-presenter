@@ -1,0 +1,26 @@
+- if current_user
+  %li.dropdown.dropdown-user
+    %a.dropdown-toggle(data-toggle="dropdown")
+      -#%img(src="/assets/images/image.png" alt="")
+      %span
+        = current_user.full_name
+        \-
+        = current_user_role.name
+      %i.caret
+
+    %ul.dropdown-menu.dropdown-menu-right
+      - all_roles = current_user.user_roles.to_a
+      - if all_roles.size > 1
+        - (all_roles - [current_user_role]).each do |ur|
+          %li
+            = link_to "Rola #{ur.name}", role_login_path(id: ur.id), { data: { method: "post" } }
+        %li.divider
+
+      %li
+        %a(href="/settings")
+          %i.icon-cog5
+          Ustawienia
+      %li
+        %a(href="/login" data-method="delete")
+          %i.icon-switch2
+          Wyloguj

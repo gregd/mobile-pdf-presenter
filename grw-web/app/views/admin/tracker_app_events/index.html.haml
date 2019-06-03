@@ -1,0 +1,37 @@
+.panel.panel-flat
+  .panel-heading
+    .row
+      .col-md-5
+        %h6.panel-title
+          Events
+          = @device.unique_identifier
+          = @device.user_role.user.full_name
+      .col-md-7
+        = form_tag({}, { method: :get, class: "form-inline" }) do
+          .rwc-FilterParams
+            = hidden_field_tag :mobile_device_id, @device.id
+            = text_field_tag :event_category, @event_category, class: "form-control rwc-AdminAppEventFilter-text", placeholder: "category"
+            = text_field_tag :event_action, @event_action, class: "form-control rwc-AdminAppEventFilter-text", placeholder: "label"
+            = submit_tag "Apply"
+  .panel-body
+    %table.rwc-AdminDiagTable
+      %tr
+        %th created_at
+        %th app_version
+        %th screen
+        %th category
+        %th action
+        %th label
+        %th value
+      - @events.each do |e|
+        %tr
+          %td.rwc-AdminDiagTable-noBreak
+            = l e.created_at, format: :pdb
+          %td= e.app_version
+          %td= e.screen
+          %td= e.category
+          %td= e.action
+          %td= e.label
+          %td= e.value
+
+    = will_paginate @events, renderer: BootstrapPagination::Rails, class: "pagination pagination-flat"

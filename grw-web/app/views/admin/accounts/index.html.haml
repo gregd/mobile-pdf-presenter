@@ -1,0 +1,26 @@
+.panel.panel-white
+  .panel-heading
+    %h6.panel-title Lista kont
+    .heading-elements.not-collapsible
+      %ul.list-inline.heading-text
+        %li
+          = link_to "Dodaj nowe konto", new_admin_account_path
+  .table-responsive
+    %table.table
+      %thead
+        %tr
+          %th Id
+          %th Subdomain
+          %th Company
+          %th Plan
+          %th Role set
+          %th Users count
+      %tbody
+        - @accounts.each do |a|
+          %tr
+            %td= a.id
+            %td= link_to a.subdomain, select_admin_account_path(a)
+            %td= link_to a.company, admin_account_path(a)
+            %td= a.account_plan.name
+            %td= a.app_role_set.name
+            %td= a.users.count

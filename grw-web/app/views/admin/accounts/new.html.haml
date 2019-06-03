@@ -1,0 +1,45 @@
+.panel.panel-flat
+  .panel-heading
+    %h6.panel-title
+      Create new account
+  .panel-body
+    = form_for(@account, url: admin_accounts_path) do |f|
+      = rw_hidden_back_url
+      = app_error_messages(f.object)
+      .row
+        .col-sm-6
+          .row
+            .col-xs-6
+              = rwf_select f, :account_plan_id, @plans
+            .col-xs-6
+              = rwf_select f, :app_role_set_id, @role_sets
+          .row
+            .col-xs-6
+              = rwf_select f, :emp_template_id, @emp_templates
+            .col-xs-6
+              = rwf_select f, :geo_template_id, @geo_templates, { include_blank: true }
+          .row
+            .col-xs-6
+              = rwf_text_field f, :company, { autofocus: true }
+            .col-xs-6
+              = rwf_text_field f, :subdomain
+        .col-sm-6
+          .row
+            .col-xs-6
+              = rwf_text_field f, :email
+            .col-xs-6
+              = rwf_text_field f, :phone
+          .row
+            .col-xs-6
+              = rwf_text_field f, :first_name
+            .col-xs-6
+              = rwf_text_field f, :last_name
+          .row
+            .col-xs-6
+              = rwf_field f, :password_field, :password
+            .col-xs-6
+              = rwf_field f, :password_field, :password_confirmation
+
+      .text-right
+        = link_to "Anuluj", redirect_back_url, class: "rwc-RedirectBack btn btn-link"
+        = f.submit "Create account", class: "btn btn-primary"

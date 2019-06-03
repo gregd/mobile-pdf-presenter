@@ -1,0 +1,7 @@
+= form_for([:repo, @file]) do |f|
+  = rw_hidden_back_url
+  = f.select :tracker_item_id,
+      @items.map {|i| ["#{i.id}. #{i.base_name}", i.id] },
+      include_blank: true
+  %br
+  = f.submit "Zapisz"

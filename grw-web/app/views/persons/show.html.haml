@@ -1,0 +1,80 @@
+- content_for(:content_header) do
+  .page-header.page-header-default
+    .page-header-content
+      .page-title
+        .row
+          .col-md-6
+            %h4
+              %span.text-semibold
+                = rw_person_full_name(@person)
+              %span.text-size-small
+                = rw_person_title(@person)
+
+            %div
+              = rw_collab_icon(@person.collab)
+              &nbsp;
+              - @person.grouped_taggings.each do |tag_group, taggings|
+                - taggings.each do |g|
+                  = g.presenter.view_as_label
+                &nbsp;
+
+          .col-md-3
+            %strong
+              = link_to @main_job.org_unit.name, org_unit_path(@main_job.org_unit)
+            = @main_job.job_title.abbr
+            %br
+            = rw_address_short(@main_job.org_unit.main_address)
+
+          .col-md-3
+            - @person.contacts.each do |c|
+              %ul.list-unstyled
+                %li= c.presenter.view_short_link
+
+      .heading-elements.not-collapsible
+        %ul.icons-list
+          %li.dropdown
+            %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+              %i.icon-menu9
+            %ul.dropdown-menu.dropdown-menu-right
+              %li.dropdown-header
+                Akcje
+              %li
+                = link_to "Edytuj", edit_person_path(@person)
+              %li
+                = link_to "Edycja stanowiska", edit_person_job_path(@main_job)
+              %li
+                = link_to "Dodaj tel / email", new_contact_path(contactable_type: "Person", contactable_id: @person.id)
+              %li.dropdown-header
+                Znaczniki
+              - taggable = @person
+              - @person.grouped_taggings.each do |tag_group, taggings|
+                %li
+                  = link_to "Edytuj #{tag_group.abbr}", taggings_edit_group_path(taggable_type: taggable.class.model_name, taggable_id: taggable, tag_group_id: tag_group)
+
+.row
+  .col-md-6
+    .panel.panel-flat
+      - if @visits.size == 0
+        .panel-body
+          Brak wizyt
+      - else
+        %table.table
+          - @visits.each do |v|
+            %tr
+              %td
+                = link_to v.activity_on, route_activity_visit_path(v)
+              %td
+                = v.validity_state
+              %td
+                = v.activity_stage
+              %td
+                = v.comments
+      .panel-footer
+        .heading-elements.not-collapsible
+          %ul.list-inline.heading-text.pull-right
+            %li
+              = link_to "Zaplanuj wizytę", new_planned_activity_visit_path(person_id: @person.id, org_unit_id: @main_job.org_unit_id)
+            %li
+              = link_to "Raportuj wizytę", new_reported_activity_visit_path(person_id: @person.id, org_unit_id: @main_job.org_unit_id)
+
+  .col-md-6

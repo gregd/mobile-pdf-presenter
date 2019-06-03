@@ -1,0 +1,22 @@
+.row
+  .col-md-5
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          - if @user_role.new_record?
+            Nowa rola
+          - else
+            Edycja roli
+          \|
+          = @user_role.user.full_name
+      .panel-body
+        = form_for([:admin, @user_role]) do |f|
+          = rw_hidden_back_url
+          = app_error_messages(f.object)
+          = f.hidden_field :user_id
+          = rwf_select f, :app_role_id, @app_roles, { include_blank: true }
+          = rwf_select f, :emp_position_id, @emps, { include_blank: true }
+          - if @areas.size > 0
+            = rwf_select f, :geo_area_id, @areas, { include_blank: true }
+          .text-right
+            = f.submit class: "btn btn-primary"

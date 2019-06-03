@@ -1,0 +1,34 @@
+.row
+  .col-md-12
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title Grupy produktów
+        .heading-elements.not-collapsible
+          %ul.list-inline.heading-text
+            %li
+              = link_to "Dodaj grupę", new_activity_product_group_path
+      %table.table.table-striped
+        %tr
+          %th Nazwa
+          %th Skrót
+          %th Dostępna dla
+          %th Produkty
+          %th
+        - @groups.each do |t|
+          %tr
+            %td= t.name
+            %td= t.abbr
+            %td= t.presenter.view_klasses.join(", ")
+            %td= t.activity_products.map {|t| t.name }.join(", ")
+            %td
+              %ul.icons-list
+                %li.dropdown
+                  %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+                    %i.icon-menu9
+                  %ul.dropdown-menu.dropdown-menu-right
+                    %li.dropdown-header
+                      Akcje
+                    %li
+                      = link_to "Edycja", edit_activity_product_group_path(t)
+                    %li
+                      = link_to "Dodaj produkt", new_activity_product_url(activity_product_group_id: t)

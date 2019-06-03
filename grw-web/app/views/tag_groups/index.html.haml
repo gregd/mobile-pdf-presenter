@@ -1,0 +1,41 @@
+.row
+  .col-md-12
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title Grupy znaczników
+        .heading-elements.not-collapsible
+          %ul.list-inline.heading-text
+            %li
+              = link_to "Dodaj grupę", new_tag_group_path
+      %table.table.table-striped
+        %tr
+          %th Nazwa
+          %th Skrót
+          %th Dostępna dla
+          %th Max 1 znacznik
+          %th Ważna
+          %th Znaczniki
+          %th
+        - @groups.each do |t|
+          %tr
+            %td= t.name
+            %td= t.abbr
+            %td= t.presenter.view_klasses.join(", ")
+            %td= t.has_uniqueness ? "✓" : ""
+            %td= t.is_important ? "✓" : ""
+            %td
+              - t.tags.each do |t|
+                %a{ href: edit_tag_path(t) }
+                  = t.presenter.view_as_label_abbr
+            %td
+              %ul.icons-list
+                %li.dropdown
+                  %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+                    %i.icon-menu9
+                  %ul.dropdown-menu.dropdown-menu-right
+                    %li.dropdown-header
+                      Akcje
+                    %li
+                      = link_to "Edycja", edit_tag_group_path(t)
+                    %li
+                      = link_to "Dodaj znacznik", new_tag_path(tag_group_id: t)

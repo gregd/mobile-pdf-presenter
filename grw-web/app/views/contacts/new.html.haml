@@ -1,0 +1,27 @@
+.row
+  .col-md-6
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          - if @contact.new_record?
+            Nowy kontakt
+          - else
+            Edycja kontaktu
+          do
+          %strong
+            = @contact.contactable.presenter.view_name
+      .panel-body
+        = form_for(@contact) do |f|
+          = app_error_messages(f.object)
+          = rw_hidden_back_url
+          = f.hidden_field :contactable_type
+          = f.hidden_field :contactable_id
+          .row
+            .col-md-4
+              = rwf_select f, :category, @categories, { rw_required: true }
+            .col-md-8
+              = rwf_text_field f, :address, rw_required: true
+          = rwf_text_field f, :comments
+          .text-right
+            = link_to "Anuluj", redirect_back_url, class: "rwc-RedirectBack btn btn-link"
+            = f.submit "Zapisz", class: "btn btn-primary"

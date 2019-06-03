@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grayBackground"
+    android:padding="4dp"
+    tools:context="com.grw.mobi.ui.RepoBrowserActivity">
+
+    <com.grw.mobi.util.AutofitRecyclerView
+        android:id="@+id/browser_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:columnWidth="136dp"
+        android:layout_above="@+id/browser_bottom_bar" />
+
+    <TextView
+        android:id="@+id/browser_message"
+        android:padding="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:id="@+id/browser_bottom_bar"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="right">
+
+        <Button
+            android:id="@+id/browser_bar_warning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:text="@string/browser_bar_no_context"
+            android:onClick="onPresentationWarning"
+            style="?android:attr/borderlessButtonStyle" />
+        <TextView
+            android:id="@+id/browser_bar_presentation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/browser_bar_presentation" />
+        <Button
+            android:id="@+id/browser_bar_cancel_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/browser_bar_cancel_btn"
+            android:onClick="onPresentationCanceled"
+            style="?android:attr/borderlessButtonStyle" />
+        <Button
+            android:id="@+id/browser_bar_finished_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/browser_bar_finished_btn"
+            android:onClick="onPresentationFinished"
+            style="?android:attr/borderlessButtonStyle" />
+    </LinearLayout>
+
+</RelativeLayout>

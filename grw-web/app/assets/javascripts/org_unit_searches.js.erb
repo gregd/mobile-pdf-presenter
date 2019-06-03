@@ -1,0 +1,34 @@
+var rwjSearchParams = {
+
+  initSelect2: function(elem) {
+    elem.select2({ containerCssClass: 'select-xs', width: "200px" });
+    elem.on('select2:unselecting', function (evt) {
+      $(this).data('unselecting', true);
+    });
+    elem.on('select2:opening', function (evt) {
+      if ($(this).data('unselecting')) {
+        $(this).removeData('unselecting');
+        evt.preventDefault();
+      }
+    });
+  },
+
+  initCommon: function() {
+    $(".rwc-SearchParams-advancedBtn").on("click", function(ev) {
+      ev.preventDefault();
+      var list = $(".rwc-SearchParams-advanced");
+      var isHidden = list.first().hasClass("is-hidden");
+      if (isHidden) {
+        list.removeClass("is-hidden");
+      } else {
+        list.addClass("is-hidden");
+      }
+    });
+
+    $(".rwc-SearchParams-clearBtn").on("click", function(ev) {
+      ev.preventDefault();
+      $(".rwc-SearchParamsDelete").first().submit();
+    });
+  }
+
+};

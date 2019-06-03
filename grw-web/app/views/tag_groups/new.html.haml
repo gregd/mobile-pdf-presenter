@@ -1,0 +1,26 @@
+.row
+  .col-md-5
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          - if @group.new_record?
+            Nowa grupa znaczników
+          - else
+            Edycja grupy znaczników
+      .panel-body
+        = form_for(@group) do |f|
+          = rw_hidden_back_url
+          = app_error_messages(f.object)
+          = rwf_text_field f, :name, autofocus: true
+          = rwf_text_field f, :abbr
+          = rwf_select f, :klasses, @klasses, {}, { multiple: true, data: { placeholder: "Wybierz kategorie" } }
+          = rwf_check_box f, :has_uniqueness
+          = rwf_check_box f, :is_important
+          .text-right
+            = link_to "Anuluj", redirect_back_url, class: "rwc-RedirectBack btn btn-link"
+            = f.submit @group.new_record? ? "Dodaj" : "Zapisz", class: "btn btn-primary"
+
+:javascript
+  $(function() {
+    $("#tag_group_klasses").select2({ width: "100%" });
+  });

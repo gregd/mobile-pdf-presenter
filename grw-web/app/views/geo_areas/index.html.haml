@@ -1,0 +1,36 @@
+.panel.panel-flat
+  .panel-heading
+    %h6.panel-title Obszary
+    .heading-elements.not-collapsible
+      %ul.list-inline.heading-text
+        %li
+          = link_to "Dodaj nowy obszar", new_geo_area_path
+  %table.table.table-condensed.table-striped.table-hover
+    %tr
+      %th Nazwa
+      %th Przypisane osoby
+      %th Akcje
+    - @areas.each do |a|
+      %tr
+        %td
+          %div{ class: "rwc-UserLevel-#{a.depth}" }
+            = link_to a.name, geo_area_path(a)
+        %td
+          - a.user_roles.each do |ur|
+            = link_to "#{ur.user.full_name} - #{ur.app_role.name}", user_path(ur.user)
+            %br
+        %td
+          %ul.icons-list
+            %li.dropdown
+              %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+                %i.icon-menu9
+              %ul.dropdown-menu.dropdown-menu-right
+                %li.dropdown-header
+                  Akcje
+                %li
+                  = link_to "Edycja", edit_geo_area_path(a)
+                %li
+                  = link_to "Dodaj podrzędne", new_geo_area_path(parent_id: a.id)
+                - if a.can_destroy?
+                  %li
+                    = link_to "Usuń", geo_area_path(a), { method: :delete, data: { confirm: "Czy jesteś pewień?" } }

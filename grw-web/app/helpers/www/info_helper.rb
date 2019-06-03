@@ -1,0 +1,2 @@
+module Www::InfoHelper
+end

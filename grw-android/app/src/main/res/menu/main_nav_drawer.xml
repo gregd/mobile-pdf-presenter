@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/main_nav_grp_1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/main_nav_start"
+            android:icon="@drawable/ic_home"
+            android:title="@string/main_nav_start" />
+        <item
+            android:id="@+id/main_nav_checkin"
+            android:icon="@drawable/ic_my_location"
+            android:title="@string/main_nav_checkin" />
+        <item
+            android:id="@+id/main_nav_locations"
+            android:icon="@drawable/ic_location_on"
+            android:title="@string/main_nav_locations" />
+        <item
+            android:id="@+id/main_nav_presentations"
+            android:icon="@drawable/presentation"
+            android:title="@string/main_nav_presentations" />
+        <item
+            android:id="@+id/main_nav_info"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/main_nav_info" />
+    </group>
+
+    <group
+        android:id="@+id/main_nav_grp_2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/main_nav_web_link"
+            android:icon="@drawable/ic_web"
+            android:title="@string/main_nav_web_link" />
+        <item
+            android:id="@+id/main_nav_help_link"
+            android:icon="@drawable/ic_information_outline"
+            android:title="@string/main_nav_help_link" />
+    </group>
+
+</menu>

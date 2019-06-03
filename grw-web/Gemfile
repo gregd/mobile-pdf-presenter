@@ -1,0 +1,50 @@
+source 'https://rubygems.org'
+
+gem 'rails', '~> 5.1.4'
+gem 'pg', '~> 0.21.0'
+gem 'haml'
+gem 'active_type'
+gem 'ltree_hierarchy', git: "https://github.com/gregd/ltree_hierarchy.git"
+gem 'bcrypt'
+gem 'paperclip'
+gem 'memoist'
+gem 'delayed_job_active_record'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+gem 'daemons'
+gem 'prawn-labels'
+
+gem 'geokit'
+gem 'request_store'
+gem 'email_validator'
+gem 'strong_password'
+gem 'attribute_normalizer'
+gem 'acts_as_list'
+gem 'pg_array_parser'
+gem 'httparty'
+gem 'spreadsheet'
+
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'jquery-rails'
+gem 'growlyflash', git: "https://github.com/gregd/growlyflash.git"
+gem 'select2-rails'
+
+gem 'whenever', :require => false
+
+group :production do
+  gem 'exception_notification'
+end
+
+group :development, :test do
+  gem 'byebug'
+end
+
+group :development do
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  #gem 'active_record_query_trace'
+end

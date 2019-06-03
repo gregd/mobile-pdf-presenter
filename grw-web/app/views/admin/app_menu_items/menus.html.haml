@@ -1,0 +1,15 @@
+- @menu_tree.each do |arr|
+  - m = arr[0]
+  %div
+    %strong
+      = m.name
+    = m.controller
+    = m.action
+    = m.position
+    - arr[1].each do |sm|
+      %div(style="margin-left: 2em;")
+        %strong
+          = sm.name
+        = sm.controller
+        = sm.action
+        = sm.position

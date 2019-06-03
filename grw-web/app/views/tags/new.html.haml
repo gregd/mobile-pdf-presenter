@@ -1,0 +1,22 @@
+.row
+  .col-md-5
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          - if @tag.new_record?
+            Nowy znacznik
+          - else
+            Edycja znacznika
+      .panel-body
+        = form_for(@tag) do |f|
+          = rw_hidden_back_url
+          = app_error_messages(f.object)
+          = rwf_select f, :tag_group_id, @groups, { include_blank: true }
+          = rwf_text_field f, :name, autofocus: true
+          = rwf_text_field f, :abbr
+          = rwf_text_field f, :description
+          = rwf_text_field f, :color, { type: "color" }
+          .text-right
+            = link_to "Anuluj", redirect_back_url, class: "rwc-RedirectBack btn btn-link"
+            = f.submit @tag.new_record? ? "Dodaj" : "Zapisz", class: "btn btn-primary"
+

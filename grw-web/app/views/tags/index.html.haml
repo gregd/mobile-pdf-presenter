@@ -1,0 +1,47 @@
+.row
+  .col-md-12
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title Lista znaczników
+        .heading-elements.not-collapsible
+          %ul.list-inline.heading-text
+            %li
+              = link_to "Dodaj nowy znacznik", new_tag_path
+      %table.table.table-striped
+        %tr
+          %th Grupa
+          %th Znacznik
+          %th Skrót
+          %th Opis
+          %th Użyty razy
+          %th
+        - cur = nil
+        - @tags.each do |t|
+          %tr
+            %td
+              - if t.tag_group_id != cur
+                - cur = t.tag_group_id
+                = t.tag_group.name
+            %td
+              = t.presenter.view_as_label
+            %td
+              = t.presenter.view_as_label_abbr
+            %td
+              = t.description
+            %td
+              = t.taggings.count
+            %td
+              %ul.icons-list
+                %li.dropdown
+                  %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+                    %i.icon-menu9
+                  %ul.dropdown-menu.dropdown-menu-right
+                    %li.dropdown-header
+                      Akcje
+                    %li
+                      = link_to "Edycja", edit_tag_path(t)
+                    %li.divider
+                    %li
+                      = link_to "Do góry", move_tag_path(t, direction: "higher"), method: :post
+                    %li
+                      = link_to "Do dołu", move_tag_path(t, direction: "lower"), method: :post

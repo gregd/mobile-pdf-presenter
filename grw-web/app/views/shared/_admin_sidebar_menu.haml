@@ -1,0 +1,55 @@
+%li{ class: params[:controller] == "admin/accounts" ? "active" : "" }
+  %a(href="#{ admin_root_path }")
+    %i.icon-home2
+    %span Accounts
+%li
+  %a(href="#")
+    %i.icon-users
+    %span Users
+  %ul
+    %li{ class: params[:controller] == "admin/users" ? "active" : "" }
+      %a(href="#{ admin_users_path }")
+        Users
+    %li{ class: params[:controller] == "admin/emp_positions" ? "active" : "" }
+      %a(href="#{ admin_emp_positions_path }")
+        Emps
+    %li{ class: params[:controller] == "admin/location_summaries" ? "active" : "" }
+      %a(href="#{ admin_location_summaries_path }")
+        Locations
+    %li{ class: ["admin/mobile_devices", "admin/mobile_logs", "admin/mobile_time_changes", "admin/tracker_app_events"].include?(params[:controller]) ? "active" : "" }
+      %a(href="#{ admin_mobile_devices_path }")
+        Devices
+%li
+  %a(href="#")
+    %i.icon-stats-bars2
+    %span Reports
+  %ul
+    %li{ class: params[:controller] == "admin/report/tracker_app_events" ? "active" : "" }
+      %a(href="#{ admin_report_tracker_app_events_path }")
+        App events
+    %li{ class: params[:controller] == "admin/sms_messages" ? "active" : "" }
+      %a(href="#{ admin_sms_messages_path }")
+        SMS
+%li
+  %a(href="#")
+    %i.icon-stack
+    %span Dev
+  %ul
+    %li{ class: params[:controller] == "admin/app_roles" ? "active" : "" }
+      %a(href="#{ admin_app_roles_path }")
+        App roles
+    %li{ class: params[:controller] == "admin/app_permissions" ? "active" : "" }
+      %a(href="#{ admin_app_permissions_path }")
+        Rights
+    %li{ class: params[:controller] == "admin/app_action_groups" ? "active" : "" }
+      %a(href="#{ admin_app_action_groups_path }")
+        Action groups
+    %li{ class: params[:controller] == "admin/app_menu_items" ? "active" : "" }
+      %a(href="#{ admin_app_menu_items_path }")
+        Menu items
+    %li{ class: params[:controller] == "admin/app_modules" ? "active" : "" }
+      %a(href="#{ admin_app_modules_path }")
+        Modules
+    %li{ class: params[:controller] == "admin/app_role_sets" ? "active" : "" }
+      %a(href="#{ admin_app_role_sets_path }")
+        App Role Sets

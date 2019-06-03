@@ -1,0 +1,12 @@
+<p>
+  W serwisie Example zostało założone dla Pana/Pani konto.
+</p>
+<p>
+  Kliknij na <strong>
+  <%= link_to 'TEN LINK', token_password_url(host: @host, email: @email, token: @token, category: @category) %>
+  </strong>
+  aby aktywować konto i ustawić nowe hasło. Kliknięcie na link powinno
+  spowodować otwarcie nowej strony i wysłanie SMS'a (na nr <%= @phone %>)
+  zawierającego hasło jednorazowe. Jest ono niezbędne do ustawienia hasła
+  zabezpieczającego Twoje konto.
+</p>

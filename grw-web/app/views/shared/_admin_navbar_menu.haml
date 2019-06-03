@@ -1,0 +1,16 @@
+- if current_admin
+  - if @show_production_warning
+    %li
+      %a.bg-warning(href="#")
+        %i.icon-warning22
+        Production
+  %li.dropdown.dropdown-user
+    %a.dropdown-toggle(data-toggle="dropdown")
+      %span= current_admin.email
+      %i.caret
+
+    %ul.dropdown-menu.dropdown-menu-right
+      %li
+        %a(href="/login" data-method="delete")
+          %i.icon-switch2
+          Logout

@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Grw</string>
+    <string name="app_name_long">Grw Mobi</string>
+    <string name="app_nav_drawer_open">Open navigation drawer</string>
+    <string name="app_nav_drawer_close">Close navigation drawer</string>
+
+    <string name="app_error_ext_dir">Karta SD nie jest aktywna.</string>
+    <string name="app_error_play_services">Błąd podczas łączenia z Google Play Services</string>
+    <string name="app_error_settings">W ustawieniach urządzenia wyłącz opcję \'Pozorowane położenie\'.</string>
+    <string name="app_error_init">Aktualizacja bazy danych lub Usług Google Play nie jest zakończona.</string>
+    <string name="app_db_no_person">Brak danych osoby z ID %d</string>
+    <string name="app_db_no_person_id">Brak danych osoby</string>
+    <string name="app_db_no_institution">Brak danych instytucji z ID %d</string>
+    <string name="app_db_no_institution_id">Brak danych instytucji</string>
+    <string name="app_play_services_required">Aplikacja Grw Mobi do poprawnego działania wymaga zainstalowanej aktualnej wersji Google Play Services.</string>
+    <string name="app_play_services_unavailable">Niestety na tym urządzeniu nie można zainstalować aktualnej wersji Google Play Services. Zgłoś ten problem osobie odpowiedzialnej za tablety w Twojej firmie.</string>
+    <string name="app_play_services_canceled">Prawdopodobnie nie dokończyłeś instalacji Google Play Services. Spróbuj jeszcze raz.</string>
+    <string name="app_play_services_ok">Odpowiednia wersja Google Play Services jest już zainstalowana.</string>
+    <string name="app_play_services_title">Aktualizacja Google Play Services</string>
+    <string name="app_permissions_required">Do poprawnego działania aplikacja wymaga kilku uprawnień. Prośba o ich akceptację.</string>
+    <string name="app_permissions_not_accepted">Nie zaakceptowałeś wszystkich wymaganych uprawnień. Praca z aplikacją jest niemożliwa. Teraz możesz zaakceptować uprawnienia tylko poprzez menu systemowe Ustawienia -> Aplikacje -> Grw -> Uprawnienia.</string>
+    <string name="app_email_help_menu">"  pomoc@grw.com"</string>
+    <string name="app_email_help_addr">"pomoc@grw.com"</string>
+    <string name="app_load_next">Pokaż pozostałe</string>
+    <string name="app_load_old">Pobierz wizyty sprzed 3 miesięcy</string>
+    <string name="app_sync_required">Wymagana synchronizacja danych! Upewnij się, że telefon/tabel ma połączenie z Internetem i kliknij przycisk \'Synchronizuj\'.</string>
+
+    <string name="main_nav_start">Start</string>
+    <string name="main_nav_agenda">Plan wizyt</string>
+    <string name="main_nav_checkin">Moja lokalizacja</string>
+    <string name="main_nav_locations">Historia lokalizacji</string>
+    <string name="main_nav_people">Osoby</string>
+    <string name="main_nav_institutions">Instytucje</string>
+    <string name="main_nav_presentations">Slajdy</string>
+    <string name="main_nav_info">Ustawienia</string>
+    <string name="main_nav_web_link">Grw Web</string>
+    <string name="main_nav_help_link">Instrukcja</string>
+
+    <string name="widget_checkin_btn">Moja lokalizacja</string>
+    <string name="widget_checkin_out">Zamelduj się wychodząc</string>
+    <string name="widget_visits_time">Czas wizyt: %s</string>
+    <string name="widget_not_logged">Nie jesteś zalogowany</string>
+    <string name="widget_do_login">Zaloguj się</string>
+
+    <string name="db_activity_report_new">Dodaj aktywność</string>
+    <string name="db_checkin_visits_time">Czas wizyt w sumie</string>
+    <string name="db_checkin_avg_per_visit">Śr. na wizytę odbytą</string>
+    <string name="db_checkin_no_visits">Brak zaraportowanych wizyt</string>
+    <string name="db_checkin_no_avg">Nie można policzyć śr.</string>
+    <string name="db_checkin_checkin">Moja lokalizacja</string>
+    <string name="db_checkin_checkin_out">Zamelduj się wychodząc</string>
+    <string name="db_checkin_locations">Historia lokalizacji</string>
+    <string name="db_cities_details">Cały plan</string>
+    <string name="db_cities_map">Dzisiaj na mapie</string>
+    <string name="db_cities_plan">"Plan: "</string>
+    <string name="db_cities_plan_empty">Plan wykonany lub pusty</string>
+    <string name="db_cities_visited">"Odwiedzone: "</string>
+    <string name="db_cities_visited_empty">Brak wykonanych wizyt</string>
+    <string name="db_recent_persons_title">Ostatnio oglądane</string>
+    <string name="db_recent_persons_person">Osoby</string>
+    <string name="db_recent_persons_inst">Instytucje</string>
+    <string name="db_recent_presentations_title">Ostatnie slajdy</string>
+    <string name="db_recent_presentations_none">Brak</string>
+    <string name="db_recent_presentations_btn">Slajdy</string>
+    <string name="db_recent_presentations_no_context">Niewybrany odbiorca pokazu slajdów</string>
+    <string name="db_recent_presentations_context">"Odbiorca pokazu: "</string>
+    <string name="db_footer">"2016 © Grw"</string>
+    <string name="db_loading_error">Niestety nie udało się obliczyć statystyk</string>
+
+    <string name="full_sync_title">Grw Mobi - Synchronizacja danych</string>
+    <string name="full_sync_message">Pełna synchronizacja danych może zająć kilka minut. Prosimy w tym czasie nie wyłączać telefonu.</string>
+    <string name="full_sync_btn_start">Start</string>
+    <string name="full_sync_in_progress">Pobieranie bazy danych …</string>
+    <string name="full_sync_failed">Wystąpił błąd podczas synchronizacji danych.</string>
+    <string name="full_sync_ok">Synchronizacja danych zakończona.</string>
+
+    <string name="upgrade_title">Aktualizacja aplikacji Grw</string>
+    <string name="upgrade_introduction">Do dalszej pracy z aplikacją Grw wymagana jest jej aktualizacja.</string>
+    <string name="upgrade_start_download">Rozpocznij pobieranie</string>
+    <string name="upgrade_install">Do dalszej pracy z aplikacją Grw wymagana jest jej aktualizacja. Prosimy o akceptację jej instalacji.</string>
+    <string name="upgrade_accept_install">Zainstaluj nową wersję</string>
+    <string name="upgrade_downloading">Pobieranie nowej wersji aplikacji może potrwać kilka minut.</string>
+    <string name="upgrade_download_error">Wystąpił błąd podczas pobierania nowej wersji. Upewnij się, że masz połączenie z Internetem i spróbuj ponownie.</string>
+    <string name="upgrade_download_in_progress">Pobieranie nowej wersji w toku.</string>
+    <string name="upgrade_company_installer">Do dalszej pracy z aplikacją Grw wymagana jest jej aktualizacja. Przejdź do sklepu Google Play i zaakceptuj instalację nowej wersji.</string>
+    <string name="upgrade_notification">Aktualizacja aplikacji Grw</string>
+    <string name="upgrade_notification_long">Prosimy o akceptację instalacji nowej wersji aplikacji Grw. Jest to wymagane do kontynuacji pracy.</string>
+    <string name="upgrade_installer_playstore">Do dalszej pracy z aplikacją Grw wymagana jest jej aktualizacja. Przejdź do sklepu Play i kliknij na przycisk Aktualizuj.</string>
+    <string name="upgrade_installer_playstore_btn">Grw w Sklepie Play</string>
+
+    <string name="info_title">Ustawienia</string>
+    <string name="info_logged_as">Zalogowany jako</string>
+    <string name="info_btn_logout">Wyloguj</string>
+    <string name="info_sync_before_logout">Na urządzeniu są dane nieprzesłane do bazy centralnej - kliknij przycisk \'Synchronizuj\'. Następnie jeszcze raz kliknij \'Wyloguj\'.</string>
+    <string name="info_data_sync_label">Ostatnia synchronizacja danych</string>
+    <string name="info_data_sync_empty">Nigdy</string>
+    <string name="info_btn_sync">Synchronizuj</string>
+    <string name="info_sync_in_progreess">Synchronizacja danych jest w trakcie wykonywania.</string>
+    <string name="info_sync_ok">Synchronizacja danych zakończona.</string>
+    <string name="info_sync_net_error">Synchronizacja danych przerwana. Problem z dostępem do Internetu.</string>
+    <string name="info_sync_failed">Wystąpił błąd podczas synchronizacji danych.</string>
+    <string name="info_sync_repo_ok">Synchronizacja plików prezentacji zakończona.</string>
+    <string name="info_sync_repo_net_error">Synchronizacja plików prezentacji przerwana. Problem z dostępem do Internetu.</string>
+    <string name="info_sync_repo_failed">Wystąpił błąd podczas synchronizacji plików prezentacji.</string>
+    <string name="info_required_upgrade">Wymagane jest zainstalowanie nowej wersji aplikacji aby kontynuować pracę.</string>
+    <string name="info_app_version">Wersja aplikacji</string>
+    <string name="info_reset_apgs_ok">Dane AGPS zostały zaktualizowane</string>
+    <string name="info_reset_apgs_failed">Wystąpił błąd podczas aktualizacji danych AGPS</string>
+    <string name="info_reset_agps_no_network">Musisz być podłączony do Internetu aby zaktualizować dane AGPS</string>
+    <string name="info_btn_help">Pokaż pomoc</string>
+    <string name="info_advanced">Inne</string>
+    <string name="info_advanced_btn">Pokaż zaawansowane</string>
+    <string name="info_full_sync">Pełna synchronizacja</string>
+    <string name="info_reset_agps">Reset AGPS</string>
+
+    <string name="login_title">Grw Mobi - Logowanie</string>
+    <string name="login_company">Firma</string>
+    <string name="login_name">Email</string>
+    <string name="login_password">Hasło</string>
+    <string name="login_btn_login">Zaloguj</string>
+    <string name="login_error_company">Pole firma nie może być puste.</string>
+    <string name="login_error_email">Pole email nie może być puste.</string>
+    <string name="login_error_password">Pole hasło nie może być puste.</string>
+    <string name="login_sending_data">Przesyłanie danych przez Internet. Proszę czekać …</string>
+    <string name="login_while_no_network">Musisz być podłączony do Internetu aby zalogować się do serwisu.</string>
+    <string name="login_successful">Logowanie poprawne. Konto i hasło zapisane.</string>
+    <string name="login_error_net">Wystąpił błąd podczas wysyłania danych. Upewnij się, że Twój telefon ma poprawnie skonfigurowanie połączenie z Internetem.</string>
+    <string name="login_error_in_progress">Akcja anulowana, oczekiwanie na odpowiedź serwera.</string>
+    <string name="login_account_info"><![CDATA[Twoja firma nie ma konta? Załóż je na stronie <a href="https://www.grw.com/presentations">Grw</a>.]]></string>
+
+    <string name="locations_title">Moja lokalizacja</string>
+    <string name="locations_no_gps">Uwaga: GPS jest wyłączony. Włącz go w ustawieniach telefonu/tabletu.</string>
+    <string name="locations_no_network">Uwaga: określanie lokalizacji poprzez sieci komórkowe jest wyłączone. Włącz je w ustawieniach telefonu/tabletu.</string>
+    <string name="locations_report_saved">Raport zapisany</string>
+    <string name="loc_recently_reported">Ostatni raport zapisany przed niecałą minutą.</string>
+    <string name="loc_finding">Określanie lokalizacji. Proszę czekać.</string>
+    <string name="loc_no_gps_or_network">GPS lub lokalizacja poprzez sieć jest wyłączona. Określenie Twojej lokalizacji może być niemożliwe.</string>
+    <string name="loc_location_details">Dokładność pomiaru %1$d metrów.</string>
+    <string name="loc_super_accurate">Nie czekaj na załadowanie mapy tylko Zamelduj się.</string>
+    <string name="loc_verify_on_map">Zweryfikuj lokalizację na mapie.</string>
+    <string name="loc_btn_report">Zamelduj się</string>
+    <string name="loc_is_outdated">Twoja lokalizacja jest już nieaktualna</string>
+    <string name="loc_opens_new">Po zameldowaniu się będzie liczony czas dla nowej lokalizacji.</string>
+    <string name="loc_no_near_inst">Jeśli odczyt lokalizacji jest poprawny to kliknij Zamelduj się.</string>
+    <string name="loc_inst_missing">Brakuje instytucji? Jeśli odczyt lokalizacji jest poprawny to kliknij Zamelduj się. Potem będziesz mógł dodać nową instytucję lub poprawić lokalizację instytucji zapisanej już bazie.</string>
+    <string name="loc_inst_existing">Poprzedni raport jest zamknięty. Jest on oznaczony na mapie zielonymi okręgami. Zapisz nowy raport, aby ponownie mierzyć czas dla tej lokalizacji.</string>
+    <string name="loc_inst_to_unlock">Po zameldowaniu się odblokowane będą:</string>
+    <string name="loc_closes_prev">Po zameldowaniu się zamknięty będzie poprzedni raport. Na mapie oznaczony jest on czerwonymi okręgami. Innymi słowy jest to &lt;b&gt;Wymeldowanie się&lt;/b&gt;.</string>
+    <string name="loc_home_office">Dom / biuro</string>
+    <string name="loc_no_provider_warn">Określenie lokalizacji bez dostępu do GPS jest niemożliwe. Zaakceptuj proponowane zmiany w ustawieniach.</string>
+
+    <string name="loc_history_title">Historia lokalizacji</string>
+    <string name="loc_list_no_items">Brak raportów</string>
+    <string name="loc_not_closed">Zamelduj się wychodząc z instytucji.</string>
+    <string name="loc_not_closed_long">Zamelduj się wychodząc z instytucji. Umożliwi to dokładnie policzenie czasu pracy.</string>
+    <string name="loc_no_inst_found">Brak instytucji w pobliżu. Dodaj nową instytucję lub popraw lokalizację instytucji już zapisanej w bazie.</string>
+    <string name="loc_no_inst_found_short">Brak instytucji w pobliżu.</string>
+    <string name="loc_history_inst_missing">Brakuje instytucji? Dodaj nową lub popraw lokalizację instytucji już zapisanej w bazie.</string>
+    <string name="loc_history_radius">W promieniu %d metrów</string>
+    <string name="loc_history_time">%1$s-%2$s%3$s</string>
+    <string name="loc_history_duration">", %s"</string>
+    <string name="loc_history_no_end">brak</string>
+    <string name="loc_history_near">W pobliżu: %s</string>
+    <string name="loc_history_no_address_short">Adres w trakcie ustalania</string>
+    <string name="loc_history_no_address_long">Adres lokalizacji zostanie wyświetlony za godzinę.</string>
+    <string name="loc_history_only_km">tylko km</string>
+    <string name="loc_history_not_work">Tylko KM</string>
+    <string name="loc_history_count_time">Policz czas</string>
+    <string name="loc_history_count_time_confirm">Potwierdź wliczenie czasu spędzonego w wybranej lokalizacji do sumarycznego czasu pracy.</string>
+    <string name="loc_history_not_work_confirm">Potwierdź nie wliczanie czasu spędzonego w wybranej lokalizacji do sumarycznego czasu pracy. Lokalizacja będzie wykorzystana tylko do obliczenia kilometrówki. </string>
+    <string name="loc_history_comments_btn">Uwagi</string>
+    <string name="loc_history_comments_prompt_1">Uwagi do lokalizacji odwiedzonej o %1$s%2$s</string>
+    <string name="loc_history_comments_prompt_2">, w pobliżu: %s</string>
+
+    <string name="loc_acc_dialog_title">Prawdopodobnie nieprecyzyjna lokalizacja</string>
+    <string name="loc_acc_dialog_message">Jeśli Twoim zdaniem \'człowieczek\' na mapie wskazuje Twoją dokładną lokalizację to kliknij OK. Jeśli nie, to kliknij Anuluj i poczekaj jeszcze chwilę aż tablet odnajdzie dokładną pozycję.</string>
+    <string name="loc_acc_dialog_ok">OK</string>
+    <string name="loc_acc_dialog_cancel">Anuluj</string>
+
+    <string name="loc_history_already_closed">Mierzenie czasu dla ostatniej lokalizacji jest już wyłączone.</string>
+    <string name="loc_history_stop_confirm">Potwierdź zatrzymanie timera dla bieżącej lokalizacji.</string>
+    <string name="loc_history_stop_added">Timer dla bieżącej lokalizacji został wyłączony.</string>
+
+    <string name="loc_history_menu_stop">Wyłącz timer</string>
+
+    <string name="general_comment_title">Edycja uwag</string>
+    <string name="general_comment_saved">Uwagi zapisane</string>
+    <string name="general_comment_menu_save">Zapisz</string>
+
+    <string name="wait_message">Przesyłanie danych. Proszę czekać …</string>
+    <string name="util_choose_send_email">Wyślij email przez</string>
+
+    <string name="list_tomorrow">Jutro</string>
+    <string name="list_today">Dzisiaj</string>
+    <string name="list_yesterday">Wczoraj</string>
+
+    <string name="help_title">Pomoc</string>
+
+    <string name="plan_title">Plan wizyt</string>
+    <string name="plan_no_visits">Brak zaplanowanych wizyt</string>
+    <string name="plan_menu_todays_on_map">Dzisiaj na mapie</string>
+    <string name="plan_no_institutions_today">Brak instytucji odwiedzonych lub zaplanowanych na dzisiaj</string>
+
+    <string name="activity_report_btn_new">Dodaj aktywność</string>
+    <string name="activity_report_category">Aktywność</string>
+    <string name="activity_report_prompt">Wybierz …</string>
+    <string name="activity_report_attachments_count">Załączonych zdjęć: %d</string>
+    <string name="activity_report_cancel">Anuluj</string>
+    <string name="activity_report_picture">Zdjęcie</string>
+    <string name="activity_report_save">Zapisz raport</string>
+    <string name="activity_report_comment">Uwagi</string>
+    <string name="activity_report_company">Dzień firmowy</string>
+
+    <string name="activity_report_saved">Aktywność zapisana.</string>
+
+    <string name="activity_report_pictures_limit">Nie możesz dodać więcej zdjęć</string>
+    <string name="activity_report_errors">Niepoprawne dane, aktywność niezapisana</string>
+    <string name="activity_report_cannot_save">Aktywność nie może być zapisana ponieważ:</string>
+    <string name="activity_report_error_no_assignment">- osoba nie jest wybrana</string>
+    <string name="activity_report_error_no_category">- kategoria nie jest wybrana</string>
+    <string name="activity_report_error_no_date">- data nie jest wybrana</string>
+    <string name="activity_report_error_double">- można dodać tylko jedną aktywność w danym dniu</string>
+
+    <string name="visit_title">"Raport z wizyty "</string>
+    <string name="visit_state_planned">Wizyta planowana</string>
+    <string name="visit_state_reported">Wizyta zaraportowana</string>
+    <string name="visit_state_missed">Wizyta nieodbyta</string>
+    <string name="visit_type_pharmacist">Apteczna z osobą</string>
+    <string name="visit_type_pharmacy">Apteczna</string>
+    <string name="visit_type_individual">Indywidualna</string>
+    <string name="visit_type_group">Grupowa</string>
+    <string name="visit_type_presentation">Prezentacja</string>
+    <string name="visit_person">Osoba</string>
+    <string name="visit_institution">Instytucja</string>
+    <string name="visit_type">Typ wizyty</string>
+    <string name="visit_date">Data</string>
+    <string name="visit_notes">Uwagi</string>
+    <string name="visit_attendees">Uczestnicy</string>
+    <string name="visit_attendee_no_data">Brak osoby z ID %d</string>
+    <string name="visit_select_attendees">Wybierz uczestników</string>
+    <string name="visit_flag_presentation">Prezentacja</string>
+    <string name="visit_flag_presentation_yes">Tak</string>
+    <string name="visit_order_value">Wartość za.</string>
+    <string name="visit_flag_order">Zamówienie</string>
+    <string name="visit_flag_order_yes">Tak</string>
+    <string name="visit_attachments_count">Liczba załączonych zdjęć: %d</string>
+    <string name="visit_attachments_count_short">Załączników</string>
+    <string name="visit_address_change">Po zaraportowaniu adres wizyty zostanie zmieniony na: %s</string>
+    <string name="visit_no_report">"Instytucja zablokowana, dodaj raport 'Zamelduj się'"</string>
+    <string name="visit_btn_cancel">Anuluj</string>
+    <string name="visit_btn_report">Raportuj</string>
+    <string name="visit_btn_picture">Zdjęcie</string>
+    <string name="visit_btn_miss">Nieodbyta</string>
+    <string name="visit_btn_save">Zapisz</string>
+    <string name="visit_btn_delete">Usuń</string>
+    <string name="visit_btn_delete_confirm">Czy na pewno chcesz usunąć wizytę?</string>
+    <string name="visit_btn_delete_yes">Tak</string>
+    <string name="visit_btn_delete_no">Nie</string>
+    <string name="visit_btn_presentation">Slajdy dla</string>
+    <string name="visit_image_saved">Zdjęcie zapisane</string>
+    <string name="visit_action_saved">Wizyta zapisana</string>
+    <string name="visit_draft_saved">Wersja robocza wizyty zapisana</string>
+    <string name="visit_draft_invalid">Wizyta nie zapisana za względu na błędne dane</string>
+    <string name="visit_action_reported">Wizyta zaraportowania jako odbyta</string>
+    <string name="visit_sync_error">Wystąpił błąd podczas synchronizacji wizyty</string>
+    <string name="visit_pictures_limit">Nie możesz dodać więcej zdjęć</string>
+
+    <string name="visit_topics_set_btn">Wybierz</string>
+    <string name="visit_query_brand_none">żadna marka</string>
+
+    <string name="visit_cat_doctor_title">u lekarza</string>
+    <string name="visit_cat_doctor_promoted_title">Marki promowane podczas wizyty</string>
+    <string name="visit_cat_doctor_promoted_abbr">Promowane</string>
+    <string name="visit_cat_doctor_promoted_hint">kolejność oznacza marki promowane najaktywniej</string>
+    <string name="visit_cat_doctor_present_title">Marki regularnie polecane przez lekarza</string>
+    <string name="visit_cat_doctor_present_abbr">Polecane</string>
+    <string name="visit_cat_doctor_present_hint">kolejność oznacza marki polecane najbardziej regularnie</string>
+    <string name="visit_cat_doctor_visible_title">Przekazane gadżety reklamowe</string>
+    <string name="visit_cat_doctor_visible_abbr">Gadżety</string>
+    <string name="visit_cat_doctor_visible_hint"></string>
+    <string name="visit_cat_doctor_sample_title">Przekazane próbki podczas wizyty</string>
+    <string name="visit_cat_doctor_sample_abbr">Próbki</string>
+    <string name="visit_cat_doctor_sample_hint"></string>
+
+    <string name="visit_cat_department_title">na oddziale</string>
+    <string name="visit_cat_department_promoted_title">Marki promowane podczas wizyty</string>
+    <string name="visit_cat_department_promoted_abbr">Promowane</string>
+    <string name="visit_cat_department_promoted_hint">kolejność oznacza marki promowane najaktywniej</string>
+    <string name="visit_cat_department_present_title">Marki regularnie polecane przez lekarzy</string>
+    <string name="visit_cat_department_present_abbr">Polecane</string>
+    <string name="visit_cat_department_present_hint">kolejność oznacza marki polecane najbardziej regularnie</string>
+    <string name="visit_cat_department_visible_title">Przekazane gadżety reklamowe</string>
+    <string name="visit_cat_department_visible_abbr">Gadżety</string>
+    <string name="visit_cat_department_visible_hint"></string>
+    <string name="visit_cat_department_sample_title">Przekazanie/obecność próbek na oddziale</string>
+    <string name="visit_cat_department_sample_abbr">Próbki</string>
+    <string name="visit_cat_department_sample_hint"></string>
+
+    <string name="visit_cat_pharmacy_title">w aptece</string>
+    <string name="visit_cat_pharmacy_promoted_title">Marki promowane podczas wizyty</string>
+    <string name="visit_cat_pharmacy_promoted_abbr">Promowane</string>
+    <string name="visit_cat_pharmacy_promoted_hint">kolejność oznacza marki promowane najaktywniej</string>
+    <string name="visit_cat_pharmacy_present_title">Marki dobrze rotujące</string>
+    <string name="visit_cat_pharmacy_present_abbr">Popularne</string>
+    <string name="visit_cat_pharmacy_present_hint">kolejność oznacza marki sprzedające się najlepiej</string>
+    <string name="visit_cat_pharmacy_visible_title">Przekazane gadżety reklamowe</string>
+    <string name="visit_cat_pharmacy_visible_abbr">Gadżety</string>
+    <string name="visit_cat_pharmacy_visible_hint"></string>
+    <string name="visit_cat_pharmacy_sample_title">Zamówione marki podczas wizyty</string>
+    <string name="visit_cat_pharmacy_sample_abbr">Zamówione</string>
+    <string name="visit_cat_pharmacy_sample_hint"></string>
+
+    <string name="visit_cat_dept_attendees_title">prezentacja na oddziale</string>
+    <string name="visit_cat_dept_attendees_promoted_title">Marki promowane podczas wizyty</string>
+    <string name="visit_cat_dept_attendees_promoted_abbr">Promowane</string>
+    <string name="visit_cat_dept_attendees_promoted_hint">kolejność oznacza marki promowane najaktywniej</string>
+    <string name="visit_cat_dept_attendees_present_title">Marki regularnie polecane przez lekarzy</string>
+    <string name="visit_cat_dept_attendees_present_abbr">Polecane</string>
+    <string name="visit_cat_dept_attendees_present_hint">kolejność oznacza marki polecane najbardziej regularnie</string>
+    <string name="visit_cat_dept_attendees_visible_title">Marki na wypisie i/lub w receptariuszu</string>
+    <string name="visit_cat_dept_attendees_visible_abbr">Wypis</string>
+    <string name="visit_cat_dept_attendees_visible_hint"></string>
+    <string name="visit_cat_dept_attendees_sample_title">Przekazanie/obecność próbek na oddziale</string>
+    <string name="visit_cat_dept_attendees_sample_abbr">Próbki</string>
+    <string name="visit_cat_dept_attendees_sample_hint"></string>
+
+    <string name="visit_cat_doctor_sequoia_title">u lekarza</string>
+    <string name="visit_cat_doctor_sequoia_promoted_title">Marki promowane podczas wizyty</string>
+    <string name="visit_cat_doctor_sequoia_promoted_abbr">Promowane</string>
+    <string name="visit_cat_doctor_sequoia_promoted_hint">kolejność oznacza marki promowane najaktywniej</string>
+    <string name="visit_cat_doctor_sequoia_present_title">Marki regularnie polecane przez lekarza</string>
+    <string name="visit_cat_doctor_sequoia_present_abbr">Polecane</string>
+    <string name="visit_cat_doctor_sequoia_present_hint">kolejność oznacza marki polecane najbardziej regularnie</string>
+    <string name="visit_cat_doctor_sequoia_visible_title">Obecność wizerunkowa marek</string>
+    <string name="visit_cat_doctor_sequoia_visible_abbr">Obecność</string>
+    <string name="visit_cat_doctor_sequoia_visible_hint">plakaty (tuby i inne)  w gabinecie lub przychodni</string>
+    <string name="visit_cat_doctor_sequoia_sample_title">Przekazane próbki podczas wizyty</string>
+    <string name="visit_cat_doctor_sequoia_sample_abbr">Próbki</string>
+    <string name="visit_cat_doctor_sequoia_sample_hint"></string>
+
+    <string name="visit_cat_pharmacy_sequoia_title">w aptece</string>
+    <string name="visit_cat_pharmacy_sequoia_visible_title">Marki obecne w aptece</string>
+    <string name="visit_cat_pharmacy_sequoia_visible_abbr">Obecność</string>
+    <string name="visit_cat_pharmacy_sequoia_visible_hint"></string>
+    <string name="visit_cat_pharmacy_sequoia_dummy"></string>
+
+    <string name="visit_topics_title">Wybierz produkty</string>
+    <string name="visit_topics_cancel">Anuluj</string>
+    <string name="visit_topics_save">Zapisz</string>
+    <string name="visit_topics_max">Nie możesz wybrać więcej marek</string>
+
+    <string name="visit_attendees_title">Wybierz uczestników</string>
+
+    <string name="visit_message">Uwaga</string>
+    <string name="visit_message_action">Uzupełnij dane</string>
+    <string name="visit_message_no_phone">Wizytowana osoba nie ma wprowadzonego nr telefonu. Wskazane jest jego uzupełnienie.</string>
+    <string name="visit_message_no_contact">Wizytowana instytucja nie ma wprowadzonych danych kontaktowych. Wskazane jest wprowadzenie nr telefonu, adresu email lub strony www.</string>
+
+    <string name="visit_menu_img_show">Powiększ zdjęcie</string>
+    <string name="visit_menu_img_delete">Usuń zdjęcie</string>
+
+    <string name="visit_missed_to_reported">Zmień na zaraportowaną</string>
+    <string name="visit_reported_to_missed">Zmień na nieodbytą</string>
+
+    <string name="visit_already_deleted">Ta wizyta została usunięta.</string>
+    <string name="visit_save_error">Niepoprawne dane, wizyta niezapisana</string>
+    <string name="visit_error_title">Wizyta nie może być zapisana ponieważ:</string>
+    <string name="visit_error_plan_in_future">- data musi być w przyszłości</string>
+    <string name="visit_error_report_in_future">- nie można raportować w przyszłości</string>
+    <string name="visit_error_miss_in_future">- wizyta nieodbyta nie można być w przyszłości</string>
+    <string name="visit_error_empty_notes">- uwagi są nieuzupełnione</string>
+    <string name="visit_error_person_double">- można dodać tylko jedną wizytę w danym dniu u wybranej osoby lub instytucji</string>
+    <string name="visit_error_inst_locked">- instytucja musi być odwiedzona w dniu wizyty</string>
+    <string name="visit_error_no_attendees">- prezentacja musi mieć co najmniej dwóch uczestników.</string>
+    <string name="visit_error_other_same_day">Ta osoba / instytucja ma już dodaną wizytę w tym dniu.</string>
+
+    <string name="visit_error_dialog">Wizyta nie może być dodana</string>
+    <string name="visit_error_no_unlocked">Instytucja \'%s\' nie jest odblokowana.</string>
+    <string name="visit_error_after_time">Instytucja \'%s\' jest odblokowana ale skończył się czas raportowania wizyt w tej instytucji. Czas jest liczony od ostatniego raportu \'Zamelduj się\'.</string>
+    <string name="visit_error_no_wp_unlocked">Żadne z miejsc pracy wybranej osoby nie było odwiedzone (odblokowane).</string>
+    <string name="visit_error_view_after_time">Nie można już edytować tej wizyty ponieważ skończył się czas raportowania wizyt w tej instytucji. Czas jest liczony od ostatniego raportu \'Zamelduj się\'.</string>
+    <string name="visit_error_plan_after_time">Nie można już zaraportować tej wizyty ponieważ skończył się czas raportowania wizyt w tej instytucji. Czas jest liczony od ostatniego raportu \'Zamelduj się\'.</string>
+
+    <string name="visit_view_title">Podgląd wizyty</string>
+    <string name="visit_person_title">Osoba</string>
+    <string name="visit_inst_title">Instytucja</string>
+    <string name="visit_date_title">Data</string>
+    <string name="visit_visitor_title">Odwiedzający</string>
+    <string name="visit_type_title">Typ</string>
+    <string name="visit_notes_title">Uwagi</string>
+    <string name="visit_attachments_title">Załączniki</string>
+    <string name="visit_tt_title">Produkty</string>
+
+    <string name="visit_plan_next">Wybierz datę aby zaplanować\nkolejną wizytę</string>
+    <string name="visit_planned_list">Następne zaplanowane\nwizyty</string>
+    <string name="visit_must_be_in_future">Planowana data wizyty musi być w przyszłości</string>
+    <string name="visit_day_is_occupied">W wybranym dniu masz już zaplanowaną wizytę w tej instytucji / u tej osoby</string>
+    <string name="visit_planned_saved">Nowa planowana wizyta zapisana</string>
+    <string name="visit_cannot_save_planned">Ze względu na konflikt nie udało się zapisać planowanej wizyty</string>
+
+    <string name="visit_view_no_visitor_data">Inny przedstawiciel</string>
+    <string name="visit_view_no_notes">Brak uwag</string>
+    <string name="visit_view_other_representative">Inny przedstawiciel</string>
+    <string name="visit_view_attendees_title">Uczestnicy</string>
+    <string name="visit_view_no_attendees">Brak</string>
+
+    <string name="inst_title">Instytucja</string>
+    <string name="inst_no_workplaces">Brak przypisanych pracowników</string>
+    <string name="inst_no_workplaces_headinst">do instytucji głównej</string>
+    <string name="inst_no_workplaces_dept">do wybranego oddziału</string>
+    <string name="inst_all_depts_workplaces">Osoby pracujące na oddziałach</string>
+    <string name="inst_no_phone">Brak numeru telefonu</string>
+    <string name="inst_is_locked">Instytucja nie jest odblokowana.</string>
+    <string name="inst_picture_saved">Zdjęcie zapisane.</string>
+    <string name="inst_menu_plan_visit">Planuj</string>
+    <string name="inst_menu_add_visit">Raportuj</string>
+    <string name="inst_menu_edit_survey">Edycja ankiety</string>
+    <string name="inst_menu_target">Target</string>
+    <string name="inst_menu_tags">Znaczniki</string>
+    <string name="inst_menu_add_person">Dodaj osobę</string>
+    <string name="inst_menu_add_wp">Dodaj miejsce pracy</string>
+    <string name="inst_menu_add_picture">Dodaj zdjęcie</string>
+    <string name="inst_menu_add_dept">Dodaj oddział</string>
+    <string name="inst_menu_edit_details">Edytuj dane</string>
+    <string name="inst_menu_fix_location">Popraw lokalizację</string>
+    <string name="inst_menu_presentations">Slajdy dla</string>
+    <string name="inst_fix_loc_dept">Uwaga: poprawa lokalizacji dotyczy całej instytucji wraz ze wszystkimi oddziałami</string>
+    <string name="inst_fix_confirmed">Lokalizacja tej instytucji została zweryfikowana przez administratora. Uważasz, że jest błędna? Wyślij email na adres pomoc@grw.com</string>
+
+    <string name="inst_out_of_territory">Ta instytucja znajduje się poza Twoim obszarem. Nie możesz tutaj raportować wizyt.</string>
+    <string name="inst_redirect_to_survey">Przed dodaniem wizyty uaktualnij ankietę.</string>
+    <string name="inst_redirect_to_person">Przed dodaniem wizyty uzupełnij imię / nazwisko.</string>
+    <string name="inst_edit_details_title">Edycja danych instytucji / oddziału</string>
+    <string name="inst_details_saved">Zmiany w danych instytucji / oddziału zostały zapisane.</string>
+    <string name="inst_cannot_save">Dane instytucji nie mogły być zapisane ze względu na błędy w wymaganych polach.</string>
+    <string name="inst_edit_error_title">Instytucja nie może być zapisana ponieważ:</string>
+    <string name="inst_error_no_category">Typ instytucji nie jest wybrany</string>
+    <string name="inst_error_no_name">Nazwa instytucji nie może być pusta</string>
+
+    <string name="inst_edit_menu_cancel">Anuluj</string>
+    <string name="inst_edit_menu_save">Zapisz</string>
+
+    <string name="inst_frag_info_title">Info</string>
+    <string name="inst_frag_info_target">Target</string>
+    <string name="inst_frag_info_tags">Znaczniki</string>
+    <string name="inst_frag_info_headinst">Główna</string>
+    <string name="inst_frag_info_address">Adres</string>
+    <string name="inst_frag_info_phone">Telefon</string>
+    <string name="inst_frag_info_www">WWW</string>
+    <string name="inst_frag_info_email">Email</string>
+    <string name="inst_frag_info_notes">Uwagi</string>
+    <string name="inst_frag_info_unlock">Odwiedzona dzisiaj</string>
+    <string name="inst_frag_info_unlock_time">od %1$s do %2$s</string>
+    <string name="inst_frag_info_no_report">brak</string>
+    <string name="inst_frag_info_www_Grw">Grw online</string>
+    <string name="inst_frag_info_www_homepage">Strona własna</string>
+
+    <string name="inst_frag_workplaces_title">Osoby</string>
+
+    <string name="inst_frag_depts_title">Oddziały</string>
+
+    <string name="inst_frag_visits_title">Wizyty</string>
+    <string name="inst_frag_visits_empty">Brak wizyt</string>
+
+    <string name="inst_frag_map_title">Mapa</string>
+
+    <string name="inst_frag_nn_title">Ankieta ON</string>
+    <string name="inst_frag_vp_title">Ankieta P.sz.</string>
+
+    <string name="inst_frag_pictures_title">Zdjęcia</string>
+    <string name="inst_frag_pictures_empty">Brak zdjęć. Załączone zdjęcia można traktować jako notatki. Np. może to być zdjęcie tablicy informacyjnej w przychodni, listy lekarzy tam pracujących wraz z ich godzinami pracy.</string>
+
+    <string name="inst_search_title">Instytucje</string>
+    <string name="inst_search_hint">Nazwa, miasto, ulica, cegiełka, …</string>
+    <string name="inst_search_empty">Brak instytucji spełniających zadane kryteria</string>
+    <string name="inst_search_records">Znaleziono %d instytucji</string>
+    <string name="inst_search_max_records">Znaleziono ponad %d instytucji, użyj bardziej szczegółowych filtrów.</string>
+
+    <string name="inst_search_menu_search">Wyszukaj</string>
+    <string name="inst_search_menu_category">Specjalizacja</string>
+    <string name="inst_search_menu_org">Główna / oddział</string>
+    <string name="inst_search_menu_target">Target</string>
+    <string name="inst_search_menu_add">Dodaj nową</string>
+
+    <string name="inst_search_org_title">Wybierz filtr</string>
+    <string name="inst_search_org_all">Wszystkie</string>
+    <string name="inst_search_org_head">Tylko główne</string>
+    <string name="inst_search_org_dept">Tylko oddziały</string>
+
+    <string name="inst_search_category_select">Wybierz kategorię</string>
+    <string name="inst_search_category_pharmacy">Farmacja</string>
+    <string name="inst_search_category_health">Służba zdrowia</string>
+    <string name="inst_search_category_clear">Usuń filtr</string>
+
+    <string name="inst_maps_title">Mapy</string>
+    <string name="inst_maps_my_position">Moja pozycja</string>
+    <string name="inst_maps_radius_prompt">Wyświetl instytucje w promieniu</string>
+    <string name="inst_maps_max_count">Wyświetlanych jest maksymalnie %d najbliższych instytucji.</string>
+    <string name="inst_maps_no_points">Brak punktów do wyświetlenia</string>
+
+    <string name="inst_visits_title">Wszystkie wizyty w instytucji</string>
+
+    <string name="inst_loc_title">Poprawa lokalizacji instytucji</string>
+    <string name="inst_loc_menu_cancel">Anuluj</string>
+    <string name="inst_loc_menu_save">Zapisz</string>
+    <string name="inst_loc_instruction">Jeśli adres instytucji jest poprawny ale na mapie jest ona umieszczona niepoprawnie, ustaw poprawną lokalizację.</string>
+    <string name="inst_loc_auto_desc">Automatycznie wyszukaj aktualną pozycję</string>
+    <string name="inst_loc_manual_desc">Ręcznie wskażę punkt na mapie</string>
+    <string name="inst_loc_confirm">Zapisać nową lokalizację instytucji?</string>
+    <string name="inst_loc_no_loc">Musisz wskazać na mapie gdzie znajduje się instytucja.</string>
+    <string name="inst_loc_too_close">Nowa lokalizacja jest za blisko aktualnej lokalizacji. Czy na pewno wskazałeś poprawną lokalizację?</string>
+
+    <string name="inst_new_addr_activity_title">Nowa instytucja - krok 1/2</string>
+    <string name="inst_new_details_activity_title">Nowa instytucja - krok 2/2</string>
+    <string name="inst_new_dept_activity_title">Nowy oddział / poradnia</string>
+    <string name="inst_new_zipcode_title">Kod pocztowy</string>
+    <string name="inst_new_city_title">Miasto</string>
+    <string name="inst_new_street_title">Ulica</string>
+    <string name="inst_new_house_nr_title">Nr domu</string>
+    <string name="inst_new_flat_nr_title">Nr mieszkania</string>
+    <string name="inst_new_category_title">Typ</string>
+    <string name="inst_new_name_title">Nazwa</string>
+    <string name="inst_new_dept_name_title">Nazwa oddziału</string>
+    <string name="inst_new_phone_title">Telefon</string>
+    <string name="inst_new_phone_2_title">Telefon (drugi)</string>
+    <string name="inst_new_homepage_title">Strona www</string>
+    <string name="inst_new_email_title">E-mail</string>
+    <string name="inst_new_notes_title">Uwagi</string>
+    <string name="inst_new_nip_title">NIP</string>
+    <string name="inst_new_address_title">Adres</string>
+    <string name="inst_new_category_prompt">Wybierz typ …</string>
+    <string name="inst_new_previous_btn">← Popraw adres</string>
+    <string name="inst_new_next_btn">Dalej →</string>
+    <string name="inst_new_save_btn">Zapisz</string>
+    <string name="inst_new_verify_location">Sprawdź czy instytucja jest poprawnie umieszczona na mapie. Jeśli nie, popraw to na ekranie \'Popraw lokalizację\', dostępnym w menu w górnym prawym rogu.</string>
+
+    <string name="inst_new_error_no_network">Musisz mieć połączenie z Internetem aby dodać nową instytucję.</string>
+    <string name="inst_new_error_connection">Podczas łączenia się z bazą centralną wystąpił błąd. Prawdopodobnie Twój telefon/tablet stracił połączenie z Internetem.</string>
+    <string name="inst_new_error_sync">Instytucja została poprawnie dodana. Jednak na zakończenie synchronizacji Twój telefon/tablet stracił połączenie z Internetem. Spróbuj ręcznie wymusić synchronizację, a następnie będziesz mógł odnaleźć dodaną instytucję.</string>
+    <string name="inst_new_error_upgrade">Instytucja została poprawnie dodana. Jednak aby kontynuować pracę musisz aktualizować aplikację Grw.</string>
+    <string name="inst_new_error_other">Instytucja została poprawnie dodana. Jednak wystąpił nieznany problem, spróbuj ręcznie wymusić pełną synchronizację danych.</string>
+    <string name="inst_new_error_address">Adres jest niepoprawny ponieważ:</string>
+    <string name="inst_new_error_details">Dane są niepoprawne ponieważ:</string>
+    <string name="inst_new_error_zipcode">Kod pocztowy ma niepoprawny format</string>
+    <string name="inst_new_error_city">Pole \'Miasto\' nie może być puste</string>
+    <string name="inst_new_error_street">Pole \'Ulica\' nie może być puste</string>
+    <string name="inst_new_error_house_nr">Pole \'Nr domu\' nie może być puste</string>
+    <string name="inst_new_error_name">Pole \'Nazwa\' nie może być puste</string>
+    <string name="inst_new_error_category">Pole \'Typ\' nie może być puste</string>
+    <string name="inst_new_error_parent">Instytucja główna jest niewybrana</string>
+
+    <string name="person_title">Osoba</string>
+    <string name="person_btn_plan">Planuj</string>
+    <string name="person_btn_report">Raportuj</string>
+    <string name="person_picture_saved">Zdjęcie zapisane.</string>
+
+    <string name="person_frag_info_workplaces">Miejsca pracy</string>
+    <string name="person_frag_info_target">Target</string>
+    <string name="person_frag_info_tags">Znaczniki</string>
+    <string name="person_frag_info_spec">Specjalizacje</string>
+    <string name="person_frag_info_email">Email</string>
+    <string name="person_frag_info_phone">Telefon</string>
+    <string name="person_frag_info_notes">Uwagi</string>
+    <string name="person_frag_info_www">WWW</string>
+    <string name="person_frag_info_www_Grw">Grw online</string>
+
+    <string name="person_frag_visits_title">Wizyty</string>
+    <string name="person_frag_visits_empty">Brak wizyt</string>
+
+    <string name="person_frag_pictures_title">Zdjęcia</string>
+    <string name="person_frag_pictures_empty">Brak zdjęć</string>
+
+    <string name="person_menu_target">Target</string>
+    <string name="person_menu_tags">Znaczniki</string>
+    <string name="person_menu_edit">Edytuj dane</string>
+    <string name="person_menu_add_wp">Dodaj miejsce pracy</string>
+    <string name="person_menu_add_picture">Dodaj zdjęcie</string>
+    <string name="person_menu_presentations">Slajdy dla</string>
+    <string name="person_visit_add">Raportuj</string>
+    <string name="person_visit_plan">Planuj</string>
+    <string name="person_choose_workplace">Wybierz miejsce pracy</string>
+
+    <string name="person_search_title">Osoby</string>
+    <string name="person_search_hint">Nazwisko, imię …</string>
+    <string name="person_search_empty">Brak osób spełniających zadane kryteria</string>
+    <string name="person_search_map_empty">List osób jest pusta</string>
+    <string name="person_search_records">Znaleziono %d osób</string>
+    <string name="person_search_max_records">Znaleziono ponad %d osób, użyj bardziej szczegółowych filtrów.</string>
+
+    <string name="person_search_menu_search">Wyszukaj</string>
+    <string name="person_search_menu_target">Target</string>
+    <string name="person_search_menu_spec">Spec.</string>
+    <string name="person_search_menu_visits">Liczba wizyt</string>
+    <string name="person_search_menu_near">Pokaż w pobliżu</string>
+
+    <string name="person_search_target_select">Wybierz filtr</string>
+    <string name="person_search_target_all_groups">Wszyscy targetowi</string>
+    <string name="person_search_target_clear">Usuń filtr</string>
+
+    <string name="person_search_spec_select">Wybierz filtr</string>
+    <string name="person_search_spec_pharmacy">Farmacja</string>
+    <string name="person_search_spec_health">Służba zdrowia</string>
+    <string name="person_search_spec_clear">Usuń filtr</string>
+
+    <string name="person_search_visits_select">Liczba wizyt w cyklu</string>
+    <string name="person_search_visits_any">Dowolna</string>
+
+    <string name="person_maps_title">Mapy</string>
+    <string name="person_maps_wait_for_fix">Poczekaj na określenie twojej pozycji</string>
+    <string name="person_maps_no_people">Nie znaleziono osób spełniających podane kryteria</string>
+
+    <string name="person_new_title_new">Dodaj nową osobę</string>
+    <string name="person_new_title_edit">Edycja danych osoby</string>
+    <string name="person_new_error_title">Osoba nie może być zapisana ponieważ:</string>
+    <string name="person_new_title">Tytuł</string>
+    <string name="person_new_all_specs">Specjalizacje</string>
+    <string name="person_new_main_spec">Gł.specjalizacja</string>
+    <string name="person_new_first_name">Imię</string>
+    <string name="person_new_last_name">Nazwisko</string>
+    <string name="person_new_phone">Telefon</string>
+    <string name="person_new_phone_2">Telefon (drugi)</string>
+    <string name="person_new_email">E-mail</string>
+    <string name="person_new_notes">Uwagi</string>
+    <string name="person_new_workplace">Gł.mi.pracy</string>
+    <string name="person_new_wp_prompt">Wykonywana funkcja …</string>
+    <string name="person_new_menu_cancel">Anuluj</string>
+    <string name="person_new_menu_save">Zapisz</string>
+    <string name="person_new_menu_all_specs">Specjalizacje</string>
+    <string name="person_new_menu_all_workplaces">Miejsca pracy</string>
+    <string name="person_new_error_anonymous">Do instytucji jest już przypisana jedna anonimowa osoba. Nie możesz dodać kolejnej. Spróbuj ustalić imię i nazwisko dodawanej osoby.</string>
+    <string name="person_new_error_double">Osoba o takim samym imieniu i nazwisku jest już przypisana do instytucji.</string>
+    <string name="person_new_error_no_main_spec">Nie jest wybrana główna specjalizacja.</string>
+    <string name="person_new_cant_save">Niepoprawne dane osoby</string>
+    <string name="person_new_saved">Dane osoby zapisane</string>
+
+    <string name="person_spec_dlg_title">Wybierz specjalizacje</string>
+    <string name="person_spec_dlg_ok">OK</string>
+    <string name="person_spec_dlg_cancel">Anuluj</string>
+
+    <string name="person_main_spec_dlg_title">Główna specjalizacja</string>
+
+    <string name="target_belongs_to">%1$s (target należy do %2$s)</string>
+
+    <string name="person_tags_dlg_title">Wybierz znaczniki (tagi)</string>
+    <string name="person_tags_dlg_ok">OK</string>
+    <string name="person_tags_dlg_cancel">Anuluj</string>
+    <string name="person_tags_saved">Znaczniki zapisane</string>
+
+    <string name="workplace_title_edit">Edycja miejsca pracy</string>
+    <string name="workplace_title_new">Nowe miejsce pracy</string>
+    <string name="workplace_no_recent_inst">Lista ostatnio oglądanych instytucji jest pusta. Odnajdź właściwą instytucję korzystając z wyszukiwarki. Następnie z poziomu ekranu tej instytucji wybierz \'Dodaj miejsce pracy\'.</string>
+    <string name="workplace_no_recent_person">Lista ostatnio oglądanych osób jest pusta. Odnajdź właściwą osobę korzystając z wyszukiwarki. Następnie z poziomu ekranu tej osoby wybierz \'Dodaj miejsce pracy\'.</string>
+    <string name="workplace_prompt">Poniżej lista ostatnio oglądanych instytucji. Wybierz spośród nich nowe miejsce pracy powyższej osoby. Jeśli brakuje właściwej instytucji to wyszukaj ją korzystając z wyszukiwarki. Następnie z poziomu ekranu tej instytucji wybierz \'Dodaj miejsce pracy\'.</string>
+    <string name="workplace_prompt_inst">Poniżej lista ostatnio oglądanych osób. Wybierz osobę które pracuje w powyższej instytucji. Jeśli brakuje właściwej osoby to wyszukaj ją korzystając z wyszukiwarki. Następnie z poziomu ekranu tej osoby wybierz \'Dodaj miejsce pracy\'.</string>
+    <string name="workplace_primary_work">Główne miejsce pracy</string>
+    <string name="workplace_occupation_opt">pole opcjonalne</string>
+    <string name="workplace_new_saved">Nowe miejsce pracy dodane</string>
+
+    <string name="workplace_error_title">Miejsce pracy nie może być zapisana ponieważ:</string>
+    <string name="workplace_error_no_inst">Nie wybrana instytucja</string>
+    <string name="workplace_error_no_person">Nie wybrana osoba</string>
+    <string name="workplace_error_domain">Nie zgadza się kategoria osoby z kategorią instytucji</string>
+    <string name="workplace_error_duplicate">Ta osoba jest już przypisana do tej instytucji.</string>
+
+    <string name="info_nn_title">Edycja ankiety ON</string>
+    <string name="info_nn_message">Uwaga</string>
+    <string name="info_nn_institution">Instytucja</string>
+    <string name="info_nn_warehouse_turnover">Potencjał obrotów miesięcznych</string>
+    <string name="info_nn_subsidiaries_count">Aptek w sieci</string>
+    <string name="info_nn_number_of_beds">Liczba łóżek</string>
+    <string name="info_nn_number_of_births">Śr liczba urodzeń w miesiącu</string>
+    <string name="info_nn_lactation_room">Na oddziale jest pokój laktacyjny</string>
+    <string name="info_nn_gets_samples">Oddział otrzymuje próbki</string>
+    <string name="info_nn_agreed_samples">Uzgodnione z ordynatorem właściwe przekazywanie próbek i materiałów</string>
+    <string name="info_nn_samples_training">Personel przeszkolony z właściwego wydawania próbek</string>
+    <string name="info_nn_number_of_vaccines">Liczba dzieci szczepionych w miesiącu</string>
+    <string name="info_nn_cn_presence">Obecność wizerunkowa firm konkurencyjnych</string>
+    <string name="info_nn_pedicetamol_stickers">Potwierdzenie wklejania naklejek Pedicetamol</string>
+    <string name="info_nn_pedicetamol_info">Potwierdzenie przekazywania rodzicom informacji o dawkowaniu Pedicetamolu i zaleceniach dotyczących suplementacji DHA i witaminy D i K (bloczek)</string>
+    <string name="info_nn_given_samples">Przekazanie próbek Omegamed Pregna/VitaDerol Baby w ilości</string>
+    <string name="info_nn_samples_to_mothers">Próbki są rozdawane w 1-2 dobie po urodzeniu bezpośrednio matce przez personel medyczny</string>
+    <string name="info_nn_samples_with_info">Próbki są wydawane z odpowiednią informacją oraz ulotką Tryptyk</string>
+    <string name="info_nn_incorrect_distribution">Zgłaszam nieprawidłowości w wydawaniu próbek przez personel</string>
+    <string name="info_nn_poster_put_up">powieszenie/sprawdzenie obecności plakatów produktowych</string>
+    <string name="info_nn_left_leaflets">zostawienie ulotek dla pacjentów w widocznym miejscu</string>
+    <string name="info_nn_left_gadgets">przekazanie personelowi medycznemu naklejek "Dzielny Pacjent"/innych gadżetów</string>
+    <string name="info_nn_materials_to_staff">przekazanie materiałów promocyjnych personelowi medycznemu</string>
+    <string name="info_nn_materials_and_stickers">"przekazanie materiałów personelowi medycznemu: bloczek Pedicetamol/Omegamed, naklejki z dawkowaniem Pedicetamolu, ulotki Pedicetamol"</string>
+    <string name="info_nn_milk_bank_posters">oddział pracuje z plakatami, ulotkami oraz broszurą laktacyjną Banku Mleka</string>
+    <string name="info_nn_lactation_room_branded">pokój laktacyjny obrandowany</string>
+    <string name="info_nn_omegamed_seal">potwierdzenie wbijania pieczątek z nazwami produktów Omegamed i Neonatus K150</string>
+    <string name="info_nn_dha_seal">oddział stosuje pieczątki z nazwami substancji DHA i witamina D</string>
+    <string name="info_nn_discharge_print">Uzyskanie do wglądu rzeczywistego wydruku z wypisu /do załączenia jeśli to możliwe/</string>
+    <string name="info_nn_all_products_present">wszystkie produkty z portfolio obecne</string>
+    <string name="info_nn_lg_list">Uzyskane informacje o potencjałowych LG na terenie</string>
+    <string name="info_nn_informed_parents">rodzice przychodzą z informacjami z próbek (owijka, ulotka)</string>
+    <string name="info_nn_informed_by_staff">rodzice przychodzą z informacją od personelu medycznego (ulotka, karta z bloczku, naklejka w KZD)</string>
+    <string name="info_nn_stand_placement">ustawienie standu "Poradnik Zdrowia Dzieci" w widocznym miejscu</string>
+    <string name="info_nn_guide_replenish">uzupełnienie poradników</string>
+    <string name="info_nn_nn_comments">Uwagi, spostrzeżenia po wizycie na oddziale</string>
+    <string name="info_nn_vp_comments">Uwagi, spostrzeżenia po wizycie w punkcie szczepień</string>
+    <string name="info_nn_ref_level">Stopień referencyjności</string>
+    <string name="info_nn_prescription_blocks">Lekarze korzystają z bloczków - recept</string>
+    <string name="info_nn_bed_sticky_notes">oddział stosuje karteczki na łóżeczka</string>
+    <string name="info_nn_sec_formulary">Produkty w receptariuszu</string>
+    <string name="info_nn_sec_prescriptions">Produkty wypisywane na receptach</string>
+    <string name="info_nn_sec_discharge">Produkty na wypisie</string>
+    <string name="info_nn_sec_presentation">Na oddziale była prezentacja produktowa</string>
+    <string name="info_nn_sec_sq_presence">Obecność wizerunkowa produktów firmy Sequoia</string>
+    <string name="info_nn_sec_stand_presence">Obecność standu z ulotkami dla konsumenta (poradniki)</string>
+    <string name="info_nn_sec_cn_sample">Na oddziale są wydawane próbki konkurencji</string>
+    <string name="info_nn_sec_cn_sample_dha">DHA</string>
+    <string name="info_nn_sec_cn_sample_vitamin">Witaminy</string>
+    <string name="info_nn_sec_cn_samples_text">Wpisanie nazwy</string>
+    <string name="info_nn_sec_cn_presence">Obecność wizerunkowa firm konkurencyjnych</string>
+    <string name="info_nn_sec_cn_presence_text">Obecność wizerunkowa firm konkurencyjnych</string>
+    <string name="info_nn_sec_inventory_title">Obecność produktów w okolicznych aptekach</string>
+    <string name="info_nn_sec_inventory">Brak na stanie produktów</string>
+    <string name="info_nn_sec_sales">Dobra rotacja produktów (sprzedanych w tygodniu)</string>
+    <string name="info_nn_sec_image_visibility">Obecność wizerunkowa na ON</string>
+    <string name="info_nn_sec_seals_and_stickers">Sprawdzenie stanu faktycznego w Książeczkach zdrowia dziecka</string>
+    <string name="info_nn_sec_sales_effect">Widoczny efekt sprzedażowy w aptekach</string>
+    <string name="info_nn_sec_visibility_presence">Obecność wizerunkowa w punktach szczepień</string>
+
+    <string name="info_nn_confirm_save">Zapisz / Potwierdź aktualność danych</string>
+    <string name="info_nn_action_saved">Ankieta zapisana</string>
+    <string name="info_nn_error_title">Ankieta nie może być zapisana ponieważ:</string>
+
+    <string name="info_nn_item_prompt">Wybierz …</string>
+    <string name="info_nn_item_prompt_edit">Nowa pozycja …</string>
+
+    <string name="info_nn_list_title">Edycja ankiety</string>
+
+    <string name="info_vp_title">Edycja ankiety P.sz.</string>
+    <string name="info_vp_action_saved">Ankieta zapisana</string>
+
+    <string name="info_nn_edit_prompt">Wprowadź opis</string>
+    <string name="info_nn_edit_product">Nazwa produktu konkurencji</string>
+    <string name="info_nn_edit_activity">Forma promocji</string>
+
+    <string name="info_query_brand_none">żadna marka</string>
+
+    <string name="date_picker_clear">Wyczyść</string>
+
+    <string name="target_frag_create">Nowy target</string>
+    <string name="target_frag_update">Edycja targetu</string>
+    <string name="target_frag_delete">Usuń target</string>
+    <string name="target_frag_ok">Zapisz</string>
+    <string name="target_frag_cancel">Anuluj</string>
+    <string name="target_frag_no_selection">Uwaga: nie wybrałeś grupy targetowej</string>
+    <string name="target_frag_save_errors">Target nie może być zapisany ponieważ:</string>
+    <string name="target_frag_error_other">do wybranej osoby/instytucji jest już przypisany target</string>
+    <string name="target_frag_error_empty">puste wymagane pola</string>
+    <string name="target_frag_saved">Target zapisany</string>
+    <string name="target_frag_deleted">Target usunięty</string>
+
+    <string name="target_search_title">Wybierz filtr</string>
+    <string name="target_search_any_group">Wszystkie z targetem</string>
+    <string name="target_search_remove">Usuń filtr</string>
+
+    <string name="picture_title">Podgląd zdjęcia</string>
+    <string name="picture_created_at">Zdjęcie dodane %s</string>
+    <string name="picture_delete_confirm">Czy na pewno chcesz usunąć zdjęcie?</string>
+
+    <string name="picture_menu_delete">Usuń zdjęcie</string>
+
+    <string name="browser_title">Slajdy</string>
+    <string name="browser_message_no_sync">Twoje pliki nie zostały jeszcze załadowane z centralnej bazy.</string>
+    <string name="browser_message_no_files">Katalog z plikami jest pusty.</string>
+    <string name="browser_desc_pages">Stron %d</string>
+    <string name="browser_desc_seconds">Sekund %d</string>
+    <string name="browser_progress">%d%%</string>
+    <string name="browser_presentation_for">"Wybrany odbiorca slajdów: "</string>
+
+    <string name="browser_no_file">Wybrany plik nie został odnaleziony. Prawdopodobnie został on usunięty lub przeniesiony do innego katalogu.</string>
+    <string name="browser_no_context">Niewybrany odbiorca pokazu slajdów</string>
+    <string name="browser_confirm">Wprowadź tekst \'potwierdzam\' aby kontynuować. Jeśli to jest prawdziwa prezentacja to przejdź na ekran osoby, instytucji lub wizyty i kliknij na \'Slajdy dla\'.</string>
+    <string name="browser_wrong_confirm">Wprowadzony tekst różni się od wymaganego \'potwierdzam\'.</string>
+    <string name="browser_bar_presentation">pokaz slajdów:</string>
+    <string name="browser_bar_cancel_btn">Anulowany</string>
+    <string name="browser_bar_finished_btn">Zakończony</string>
+    <string name="browser_bar_no_context">Niewybrany odbiorca pokazu slajdów</string>
+    <string name="browser_stats_saved">Pokaz slajdów zakończony. Statystyki oglądalności zapisane.</string>
+    <string name="browser_stats_cancelled">Pokaz slajdów zakończony. Ostatnie statystyki oglądalności dla wybranej osoby / instytucji anulowane.</string>
+
+    <string name="browser_menu_client">Odbiorca</string>
+    <string name="browser_pres_dialog_title">Odbiorca pokazu slajdów</string>
+    <string name="browser_pres_dialog_ok">OK</string>
+    <string name="browser_pres_dialog_not_found">Odbiorca pokazu slajdów nie został odnaleziony.</string>
+
+    <string name="browser_info_dialog_title">Jak wybrać odbiorcę pokazu slajdów</string>
+    <string name="browser_info_dialog_message">Przejdź na ekran osoby, instytucji lub wizyty. Następnie w górnym prawym rogu ekranu kliknij na ikonę / menu \'Slajdy dla\'.</string>
+    <string name="browser_info_dialog_ok">OK</string>
+
+    <string name="browser_downloading">Ładowanie: %s</string>
+    <string name="browser_no_space_title">Brak miejsca na pliki slajdów</string>
+    <string name="browser_no_space_text">Zabrakło miejsca na załadowanie wszystkich plików slajdów. Zwolnij miejsce na urządzeniu jeśli chcesz mieć dostęp do wszystkich slajdów.</string>
+
+</resources>

@@ -1,0 +1,18 @@
+.panel.panel-flat
+  .panel-heading
+    = form_tag({}, { method: "get" }) do
+      %label Filtr modułów
+      = select_tag :app_module_id, options_for_select(@modules, @selected_id)
+
+  .panel-body
+    - @groups.each do |ag|
+      = render "form", { group: ag }
+
+    = render "form", { group: @new_group }
+
+:javascript
+  $(function() {
+    $("#app_module_id").change(function() {
+      this.form.submit();
+    });
+  });

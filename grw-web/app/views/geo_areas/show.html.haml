@@ -1,0 +1,35 @@
+.row
+  .col-md-6
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          Obszar
+          = @area.name
+        .heading-elements.not-collapsible
+          %ul.list-inline.heading-text
+            %li
+              = link_to "Edycja danych", edit_geo_area_path(@area)
+      %table.table.table-striped.table-hover
+        %tr
+          %th= GeoArea.human_attribute_name :name
+          %td= @area.name
+        - if @area.geo_brick_id
+          %th= GeoArea.human_attribute_name :geo_brick_id
+          %td
+            = @area.geo_brick.name
+            \/
+            = @area.geo_brick.geo_partition.name
+
+    - if @area.children.count > 0
+      .panel.panel-flat
+        .panel-heading
+          %h6.panel-title
+            Podlegle obszary
+        %table.table.table-striped.table-hover
+          %tr
+            %th #
+            %th Nazwa
+          - @area.children.each_with_index do |ch, index|
+            %tr
+              %td= index + 1
+              %td= link_to ch.name, geo_area_path(ch)

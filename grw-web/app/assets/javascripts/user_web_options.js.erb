@@ -1,0 +1,20 @@
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+
+$(function() {
+
+  // Toggle mini sidebar
+  $('.sidebar-main-toggle').on('click', function (e) {
+    e.preventDefault();
+    setTimeout(function() {
+      var isWide = ! $('body').hasClass('sidebar-xs');
+      $.ajax({
+        url: "/current_web_option",
+        method: "PUT",
+        dataType: "json",
+        data: { current_web_option: { sidebar_wide: isWide } }
+      });
+    }, 1);
+  });
+
+});

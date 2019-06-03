@@ -1,0 +1,43 @@
+.panel.panel-flat
+  .panel-body
+    .row
+      .col-xs-10
+        %table.table.table-condensed.table-striped
+          %thead
+            %tr
+              %th
+              - @roles.each do |role|
+                %th.rwc-RotateCell
+                  %div= "#{role.app_role_set.abbr} #{role.name}"
+          %tbody
+            - @permissions.each_pair do |module_name, arr|
+              %tr
+                %th{ colspan: @roles.size + 1 }
+                  %strong
+                    = module_name
+              - arr.each_value do |perms|
+                %tr
+                  %td
+                    - ag = perms[0].app_action_group
+                    %abbr{ title: ag.description}= ag.name
+                  - perms.each do |an|
+                    %td
+                      %div{ id: dom_id(an) }
+                        = form_for([:admin, an], html: { remote: true }) do |f|
+                          = f.check_box :allow, class: "rwc-AppPermission-check"
+      .col-xs-2
+        = form_tag({}, { method: "get" }) do
+          .form-group
+            %label Role set
+            = select_tag :role_set_id, options_for_select(@role_sets, @selected_role_set_id), include_blank: true, class: "form-control"
+          .form-group
+            %label Modules
+            = select_tag :modules_ids, options_for_select(@modules, @selected_modules), { :multiple => true, class: "form-control" }
+          = submit_tag "Filtruj", class: "btn btn-default"
+
+:javascript
+  $(function() {
+    $(".rwc-AppPermission-check").change(function(e) {
+      $(this).closest("form").submit();
+    });
+  });

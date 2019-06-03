@@ -1,0 +1,22 @@
+.panel.panel-flat
+  .panel-heading
+    %h6.panel-title App modules
+    .heading-elements
+      %ul.list-inline.heading-text
+        %li
+          = link_to "New module", new_admin_app_module_path
+  .table-responsive
+    %table.table
+      %tr
+        %th id
+        %th position
+        %th action groups
+        %th name
+        %th
+      - @modules.each do |m|
+        %tr
+          %td= m.id
+          %td= m.position
+          %td= m.app_action_groups.count
+          %td= m.name
+          %td= link_to "edit", edit_admin_app_module_path(m)

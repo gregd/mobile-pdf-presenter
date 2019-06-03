@@ -1,0 +1,26 @@
+.panel.panel-flat
+  .panel-heading
+    %h6.panel-title App role sets
+    .heading-elements
+      %ul.list-inline.heading-text
+        %li
+          = link_to "New set", new_admin_app_role_set_path
+  .table-responsive
+    %table.table
+      %tr
+        %th id
+        %th position
+        %th global
+        %th abbr
+        %th name
+        %th description
+        %th
+      - @sets.each do |s|
+        %tr
+          %td= s.id
+          %td= s.position
+          %td= s.global? ? "✓" : ""
+          %td= s.abbr
+          %td= s.name
+          %td= s.description
+          %td= link_to "edit", edit_admin_app_role_set_path(s)

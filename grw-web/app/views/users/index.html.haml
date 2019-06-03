@@ -1,0 +1,31 @@
+.panel.panel-flat
+  .panel-heading
+    %h6.panel-title Lista użytkowników
+    .heading-elements.not-collapsible
+      %ul.list-inline.heading-text
+        %li
+          = link_to "Dodaj nowego użytkownika", new_user_path
+  %table.table.table-condensed.table-striped.table-hover
+    %tr
+      %th= User.human_attribute_name :last_name
+      %th= User.human_attribute_name :phone
+      %th= User.human_attribute_name :email
+      %th Role
+      %th Akcje
+    - @users.each do |u|
+      %tr
+        %td= link_to u.full_name, user_path(u)
+        %td= rw_number_to_phone u.phone
+        %td= u.email
+        %td
+          = u.user_roles.map {|r| urh_long_name(r) }.join(", ")
+        %td
+          %ul.icons-list
+            %li.dropdown
+              %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+                %i.icon-menu9
+              %ul.dropdown-menu.dropdown-menu-right
+                %li.dropdown-header
+                  Akcje
+                %li
+                  = link_to "Edycja", edit_user_path(u)

@@ -1,0 +1,64 @@
+.panel.panel-default
+  .panel-heading
+    .row
+      .col-md-3
+        %h6.panel-title
+          Oglądalność prezentacji
+      .col-md-9
+        - if @report
+          = form_tag({}, { :method => :get, :class => "form-inline" }) do
+            .rwc-FilterParams
+              .rwc-FilterParams-group
+                = select_tag :tracker_item_id, options_for_select(@items.map {|i| [i.base_name, i.id] }, @item.id), class: "form-control"
+
+              .rwc-FilterParams-group
+                = select_tag :indicator, options_for_select(@indicators, @selected_indicator), class: "form-control"
+
+              .rwc-FilterParams-group
+                = label_tag :start_on, "Od", class: "rwc-FilterParams-control"
+                = text_field_tag :start_on, @date_range.start_on, class: "form-control datepicker rwc-FilterParams-control", data: { provide: "datepicker" }
+
+              .rwc-FilterParams-group
+                = label_tag :end_on, "Do", class: "rwc-FilterParams-control"
+                = text_field_tag :end_on, @date_range.end_on, class: "form-control datepicker rwc-FilterParams-control", data: { provide: "datepicker" }
+
+              - if @team.size > 1
+                .rwc-FilterParams-group
+                  = select_tag :ua_id, options_for_select(@team.map {|a| [("- " * (a.relative_level - 1)) + " #{a.node_name}", a.id]}, @selected_ua.id),
+                      class: "form-control"
+
+  - if @report
+    .table-responsive
+      %table.table.table-xxs.table-bordered.table-striped.table-hover
+        %tr
+          %th Osoba
+          - @report.first[:days].each do |d|
+            %th.rwc-RepoReportItems-day
+              = l d[:day], format: :month_day
+        - @report.each do |r|
+          %tr
+            %td.rwc-RepoReportItems-person
+              %div{ :class => "rwc-UserLevel-#{ r[:emp].relative_level }" }
+                = r[:emp].node_name
+            - r[:days].each do |d|
+              %td.number
+                - val = repo_pres_indicator(@selected_indicator, d)
+                - if val
+                  = val
+                  -#= link_to val, repo_report_receivers_index_path(tracker_item_id: @item.id, ua_id: r[:emp].id, start_on: d[:day], end_on: d[:day])
+
+  - else
+    .panel-body
+      %h4 Brak prezentacji
+
+:javascript
+  $(function() {
+    $("#tracker_item_id, #indicator, #ua_id").change(function() {
+      $(this.form).submit();
+    });
+
+    $('.datepicker').datepicker().on('hide', function (ev) {
+      $(this.form).submit();
+    });
+
+  });

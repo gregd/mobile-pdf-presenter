@@ -1,0 +1,28 @@
+var GrwUtils = {
+
+  reload: function() {
+    // remove any left dialogs
+    //try { $('#dialog-holder').dialog('destroy').empty(); } catch(err) {}
+    GrwUtils.saveScrollTop();
+    window.location.reload(true);
+  },
+
+  saveScrollTop: function() {
+    // cookie expires in 60 seconds because it is needed only for page reload
+    var d = new Date(new Date().getTime() + 60 * 1000);
+    Cookies.set("rw_scroll_top", $(document).scrollTop(), { expires: d });
+  },
+
+  restoreScrollTop: function() {
+    var v = Cookies.get("rw_scroll_top");
+    if (v != null) {
+      $(document).scrollTop(v);
+      Cookies.remove("rw_scroll_top");
+    }
+  }
+
+};
+
+$(window).load(function() {
+  GrwUtils.restoreScrollTop();
+});

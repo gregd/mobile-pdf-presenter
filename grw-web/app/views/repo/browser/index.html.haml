@@ -1,0 +1,159 @@
+.panel.panel-flat
+  .panel-heading
+    %h6.panel-title
+      = repo_path_links(@path)
+
+  %table.table.rwc-RepoBrowserList
+    %tr
+      %th.rwc-RepoBrowserList-coverCol
+      %th Nazwa
+      %th.rwc-RepoBrowserList-sizeCol Rozmiar
+      %th.rwc-RepoBrowserList-reportsCol Raporty
+      %th.rwc-RepoBrowserList-actionsCol Akcje
+    - if @list.empty?
+      %tr
+        %td(colspan="5" )
+          - if @basename
+            Katalog <strong>#{@basename}</strong> jest pusty.
+          - else
+            Główny katalog jest pusty. Kliknij na 'dodaj plik' aby dodać pierwszą prezentację.
+    - else
+      - @list.each do |i|
+        - id_prefix = i.basename.parameterize
+        %tr.rwc-RepoBrowserList-file
+          %td
+            - if i.dir?
+              %i.icon-folder4.rwc-RepoBrowserList-icon
+            - else
+              - if i.rel_cover_picture
+                %img.rwc-RepoBrowserList-cover.img-rounded{ src: repo_browser_download_path(path: i.rel_cover_picture) }
+              - else
+                %i.icon-file-empty.rwc-RepoBrowserList-icon
+          %td
+            - if i.dir?
+              = link_to i.basename, repo_browser_index_path(path: i.path)
+            - else
+              = link_to i.basename, repo_browser_download_path(path: i.path), { target: "_blank" }
+          %td.text-right
+            - if i.size && i.size > 0
+              = number_to_human_size(i.size)
+          %td
+            - if (! i.dir?) && i.meta_info[:tracking_id]
+              %ul.icons-list
+                %li.dropdown
+                  %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+                    %i.icon-menu9
+                  %ul.dropdown-menu.dropdown-menu-right
+                    %li.dropdown-header
+                      Raporty
+                    %li
+                      = link_to "Oglądalność", repo_report_items_index_path(tracking_id: i.meta_info[:tracking_id])
+                    - if i.meta_info[:pages]
+                      %li
+                        = link_to "Strony", repo_report_pages_index_path(tracking_id: i.meta_info[:tracking_id])
+                    -#%li
+                    -#  = link_to "Odbiorcy", repo_report_receivers_index_path(tracking_id: i.meta_info[:tracking_id])
+          %td
+            %ul.icons-list
+              %li.dropdown
+                %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+                  %i.icon-menu9
+                %ul.dropdown-menu.dropdown-menu-right
+                  %li.dropdown-header
+                    Akcje
+                  %li
+                    %a(href="#" data-toggle="modal" data-target="##{ id_prefix }-rename") Zmień nazwę
+                  %li
+                    %a(href="#" data-toggle="modal" data-target="##{ id_prefix }-move") Przenieś
+                  %li
+                    %a(href="#" data-toggle="modal" data-target="##{ id_prefix }-remove")= i.dir? ? "Usuń katalog" : "Usuń plik"
+
+            .modal.fade(tabindex="-1" role="dialog" id="#{ id_prefix }-rename")
+              .modal-dialog.modal-sm(role="document")
+                .modal-content
+                  = form_tag(repo_browser_rename_path, { method: "post" }) do
+                    .modal-header
+                      %button.close(type="button" data-dismiss="modal")
+                        %span &times;
+                      %h4.modal-title Zmień nazwę pliku '#{i.basename}'
+                    .modal-body
+                      = hidden_field_tag :path, i.path
+                      = label_tag :new_name, "Na"
+                      = text_field_tag :new_name, i.name_for_rename, class: "form-control"
+                    .modal-footer
+                      %button(type="button" class="btn btn-link" data-dismiss="modal") Anuluj
+                      = submit_tag "Zmień", class: "btn btn-primary", data: { disable_with: "Wysyłam..." }
+
+            .modal.fade(tabindex="-1" role="dialog" id="#{ id_prefix }-move")
+              .modal-dialog.modal-sm(role="document")
+                .modal-content
+                  = form_tag(repo_browser_move_path, { method: "post" }) do
+                    .modal-header
+                      %button.close(type="button" data-dismiss="modal")
+                        %span &times;
+                      %h4.modal-title Przenieś plik '#{i.basename}' do innego katalogu
+                    .modal-body
+                      = hidden_field_tag :path, i.path
+                      = select_tag :new_dir, options_for_select(@dirs.reject {|d| d == i.dirname }), { class: "form-control", prompt: "Docelowy katalog ..."}
+                    .modal-footer
+                      %button(type="button" class="btn btn-link" data-dismiss="modal") Anuluj
+                      = submit_tag "Przenieś", class: "btn btn-primary", data: { disable_with: "Wysyłam..." }
+
+            .modal.fade(tabindex="-1" role="dialog" id="#{ id_prefix }-remove")
+              .modal-dialog.modal-sm(role="document")
+                .modal-content
+                  = form_tag(repo_browser_remove_path, { method: "post" }) do
+                    = hidden_field_tag :path, i.path
+                    .modal-body
+                      %p.text-warning
+                        Potwierdź usunięcie #{ i.dir? ? "katalogu" : "pliku" } '#{ i.basename }'
+                    .modal-footer
+                      %button(type="button" class="btn btn-link" data-dismiss="modal") Anuluj
+                      = submit_tag "Usuń", class: "btn btn-danger", data: { disable_with: "Wysyłam..." }
+
+  .panel-body
+    %button.btn.btn-link(type="button" data-toggle="modal" data-target="#rwc-RepoAddFileDialog")
+      %i.icon-cloud-upload.position-left
+      Dodaj plik
+    %button.btn.btn-link(type="button" data-toggle="modal" data-target="#rwc-RepoAddDirDialog")
+      %i.icon-folder-plus4.position-left
+      Dodaj katalog
+
+    .modal.fade(tabindex="-1" role="dialog" id="rwc-RepoAddDirDialog")
+      .modal-dialog.modal-sm(role="document")
+        .modal-content
+          = form_tag(repo_browser_mkdir_path, { method: "post" }) do
+            = hidden_field_tag :path, @path
+            .modal-header
+              %button.close(type="button" data-dismiss="modal")
+                %span &times;
+              %h4.modal-title Dodaj nowy katalog
+            .modal-body
+              = label_tag :dir_name, "Nazwa"
+              = text_field_tag :dir_name, nil, class: "form-control"
+            .modal-footer
+              %button(type="button" class="btn btn-link" data-dismiss="modal") Anuluj
+              = submit_tag "Dodaj", class: "btn btn-primary", data: { disable_with: "Wysyłam..." }
+
+    .modal.fade(tabindex="-1" role="dialog" id="rwc-RepoAddFileDialog")
+      .modal-dialog.modal-sm(role="document")
+        .modal-content
+          = form_tag(repo_browser_upload_path, { method: "post", multipart: true }) do
+            = hidden_field_tag :path, @path
+            .modal-header
+              %button.close(type="button" data-dismiss="modal")
+                %span &times;
+              %h4.modal-title Dodaj nowy plik
+            .modal-body
+              %p.text-muted
+                Prezentacje muszą być zapisane jako plik
+                %span PDF
+              = file_field_tag :file, class: "form-control"
+            .modal-footer
+              %button(type="button" class="btn btn-link" data-dismiss="modal") Anuluj
+              = submit_tag "Wyślij plik", class: "btn btn-primary", data: { disable_with: "Wysyłam..." }
+
+:javascript
+  $(function() {
+    rwjRepoBrowser.init();
+  });

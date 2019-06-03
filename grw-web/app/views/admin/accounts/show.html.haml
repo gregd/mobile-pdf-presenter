@@ -1,0 +1,43 @@
+.row
+  .col-md-6
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          Podgląd konta
+        .heading-elements.not-collapsible
+          %ul.list-inline.heading-text
+            %li
+              %a{ href: "//#{@account.subdomain}.#{@host_addr}", target: "_blank" } Open subdomain
+      %table.table
+        %tr
+          %th Company
+          %td= @account.company
+        %tr
+          %th Subdomain
+          %td= @account.subdomain
+        %tr
+          %th Plan
+          %td= @account.account_plan.name
+        %tr
+          %th Role set
+          %td= @account.app_role_set.name
+        %tr
+          %th Geo partition
+          %td
+            - if @account.geo_partition
+              = @account.geo_partition.name
+        %tr
+          %th Created at
+          %td= l @account.created_at
+        %tr
+          %th Config
+          %td= link_to "edit", edit_admin_account_config_path(@config)
+        %tr
+          %th Daily report emails
+          %td= @config.daily_report_emails.join("<br/>").html_safe
+        %tr
+          %th
+          %td
+            = link_to "Usuń konto", admin_account_path(@account), method: :delete,
+                data: { confirm: "Czy na pewno usunąć konto '#{@account.company}'?" },
+                class: "btn btn-danger"

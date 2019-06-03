@@ -1,0 +1,162 @@
+pl:
+  time:
+    formats:
+      default: ! '%Y-%m-%d, %H:%M'
+      only_hm: '%H:%M'
+      only_hms: '%H:%M:%S'
+      pdb: '%Y-%m-%d %H:%M:%S'
+  date:
+    formats:
+      month_day: '%m-%d'
+
+  activerecord:
+    models:
+      admin: Administrator
+      user/register: Użytkownik
+      user_address/home: Adres domowy
+      address: Adres pocztowy
+      org_unit: Firma
+      org_unit/register: Nowa firma
+      person: Osoba
+      person/register: Nowa osoba
+      person_job: Miejsce pracy
+      tag: Znacznik
+      tag_group: Grupa znaczników
+      activity_visit: Wizyta
+
+    attributes:
+      user:
+        first_name:  "Imię"
+        last_name:  "Nazwisko"
+        phone:  "Telefon"
+        email:  "E-mail"
+        password: "Hasło"
+        password_confirmation: "Potwierdź hasło"
+        created_at: Utworzony
+        updated_at: Aktualizowany
+        deleted_at: Dezaktywowany
+      user/register:
+        first_name:  "Imię"
+        last_name:  "Nazwisko"
+        phone:  "Telefon"
+        email:  "E-mail"
+        app_role_id: Uprawnienia
+        emp_position_id: Stanowisko
+        geo_area_id: Obszar
+        send_invitation: Wyślij zaproszenie
+      user_role:
+        user_id: Osoba
+        app_role_id: Uprawnienia
+        emp_position_id: Stanowisko
+        geo_area_id: Obszar
+      emp_position:
+        parent_id: Przełożony
+        name: Nazwa stanowiska
+      user_address/home:
+        country: Kraj
+        zipcode: Kod pocztowy
+        city: Miasto
+        street: Ulica
+        house_nr: Numer domu
+        flat_nr: Numer mieszkania
+        flag_km: Początek i koniec trasy (kilometrówka)
+      geo_area:
+        name: Nazwa obszaru
+        geo_brick_id: Cegiełka
+      org_unit:
+        name: Nazwa firmy
+        collab: Współpraca
+        tax_nip: Numer NIP
+      address:
+        country: Kraj
+        zipcode: Kod pocztowy
+        city: Miasto
+        street: Ulica
+        house_nr: Nr domu
+        flat_nr: Nr mieszkania
+        comments: Uwagi do adresu
+      org_unit/register:
+        org_name: Nazwa firmy
+        tax_nip: Numer NIP
+        country: Kraj
+        zipcode: Kod pocztowy
+        city: Miasto
+        street: Ulica
+        house_nr: Nr
+        flat_nr: Lokal
+        comments: Uwagi do adresu
+        org_unit_collab: Współpraca
+        org_unit_phone: Firmowy tel
+        org_unit_email: Firmowy e-mail
+        org_unit_www: Strona www firmy
+        person_collab: Współpraca
+        first_employee: Dodaj pierwszego pracownika
+        job_title_id: Stanowisko
+        person_title_id: Tytuł
+        first_name: Imię
+        last_name: Nazwisko
+        unknown_name: Nieznane
+        person_phone: Telefon
+        person_email: E-mail
+        person_www: Strona www osoby
+      person:
+        person_title_id: Tytuł
+        first_name: Imię
+        last_name: Nazwisko
+        unknown_name: Nieznane imię/nazwisko
+        collab: Współpraca
+      person/register:
+        job_title_id: Stanowisko
+        person_title_id: Tytuł
+        first_name: Imię
+        last_name: Nazwisko
+        unknown_name: Nieznane
+        collab: Współpraca
+        email: E-mail
+        phone: Nr telefonu
+        www: Adres strony www
+      person_job:
+        job_title_id: Stanowisko
+      contact:
+        category: Typ kontaktu
+        address: Identyfikator lub numer
+        comments: Uwagi
+      tag:
+        tag_group_id: Grupa znaczników
+        name: Pełna nazwa
+        abbr: Skrót nazwy
+        description: Opis
+        color: Kolor tła
+      tag_group:
+        klasses: Dostępny dla
+        name: Pełna nazwa
+        abbr: Skrót nazwy
+        has_uniqueness: Wybór jednego znacznika
+        is_important: Wyświetlana obok nazwy
+      person_search:
+        collab: Współpraca
+      org_unit_search:
+        collab: Współpraca
+      activity_product_group:
+        klasses: Dostępny dla
+        name: Pełna nazwa
+        abbr: Skrót nazwy
+      activity_product:
+        activity_product_group_id: Grupa produktów
+        name: Pełna nazwa
+        abbr: Skrót nazwy
+      activity_visit:
+        comments: Uwagi
+        activity_on: Data
+
+  will_paginate:
+    previous_label: "« Poprzednia"
+    next_label: "Następna »"
+    page_gap: "&hellip;"
+
+  mobile:
+    login:
+      wrong_user_or_password: Logowanie nie powiodło się. Nazwa użytkownika lub hasło są niepoprawne.
+      no_mobile_profile: Aplikacja mobilna nie obsługuje Twojego typu konta. Zaloguj się przez stronę www.
+      device_not_allowed: To urządzenie nie zostało dopuszczone do użycia w Twojej firmie. Skontaktuj się z administratorem aby je odblokować.
+      device_blocked: Logowanie na to urządzenie zostało zablokowane. Skontaktuj się z administratorem aby je odblokować.

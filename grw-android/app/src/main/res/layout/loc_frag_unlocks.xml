@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#ffffffff" >
+
+    <TextView
+        android:id="@+id/loc_frag_unlocks_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="@dimen/margin_main"
+        android:layout_marginRight="@dimen/margin_main"
+        android:layout_marginLeft="@dimen/margin_main"
+        tools:text="Od 10:10 do 11:34" />
+
+    <TextView
+        android:id="@+id/loc_frag_unlocks_reminder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="@color/loc_warn"
+        android:layout_marginTop="@dimen/margin_main"
+        android:layout_marginRight="@dimen/margin_main"
+        android:layout_marginLeft="@dimen/margin_main"
+        android:text="@string/loc_not_closed_long" />
+
+    <TextView
+        android:id="@+id/loc_frag_unlocks_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="@dimen/margin_main"
+        android:layout_marginRight="@dimen/margin_main"
+        android:layout_marginLeft="@dimen/margin_main"
+        tools:text="W pobliżu: Literacka 19, Warszawa"/>
+
+    <TextView
+        android:id="@+id/loc_frag_unlocks_no_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="@dimen/margin_main"
+        android:layout_marginRight="@dimen/margin_main"
+        android:layout_marginLeft="@dimen/margin_main"
+        android:text="@string/loc_history_no_address_long"/>
+
+    <TextView
+        android:id="@+id/loc_frag_unlocks_comments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="@dimen/margin_main"
+        android:layout_marginRight="@dimen/margin_main"
+        android:layout_marginLeft="@dimen/margin_main"
+        android:layout_marginBottom="@dimen/margin_main"
+        android:textStyle="italic"
+        tools:text="Uwagi do pobytu w lokalizacji." />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/loc_frag_unlocks_count_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loc_history_count_time"
+            style="?android:attr/borderlessButtonStyle" />
+
+        <Button
+            android:id="@+id/loc_frag_unlocks_not_work"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loc_history_not_work"
+            style="?android:attr/borderlessButtonStyle" />
+
+        <Button
+            android:id="@+id/loc_frag_unlocks_comments_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loc_history_comments_btn"
+            style="?android:attr/borderlessButtonStyle" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/loc_frag_unlocks_list"
+        android:padding="8dp"
+        android:layout_margin="@dimen/margin_main"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+</LinearLayout>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTabLayout" parent="Widget.Design.TabLayout"></style>
+
+    <style name="AppTheme.FullScreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="SectionBlock">
+        <item name="android:visibility">gone</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/section_margin_top_size</item>
+    </style>
+
+    <style name="SectionBlockLine">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="SectionLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/section_label_size</item>
+    </style>
+
+    <style name="SectionLine">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="SectionText" parent="android:TextAppearance">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:textSize">@dimen/section_body_size</item>
+    </style>
+
+    <style name="SectionSpanDivider">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:background">?android:attr/dividerVertical</item>
+    </style>
+
+    <style name="SectionTextSpan" parent="android:TextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="HorizontalSeparator">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:background">?android:attr/dividerHorizontal</item>
+    </style>
+
+    <style name="VerticalSeparator">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:background">?android:attr/dividerVertical</item>
+    </style>
+
+    <!-- Main list -->
+    <style name="ListMainHead">
+        <item name="android:textSize">@dimen/list_main_head_text</item>
+    </style>
+
+    <style name="ListMainCategory">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/list_main_body_text</item>
+    </style>
+
+    <style name="ListMainDetails">
+        <item name="android:textSize">@dimen/list_main_body_text</item>
+    </style>
+
+    <!-- Secondary list -->
+    <style name="ListSecondaryHead">
+        <item name="android:textSize">@dimen/list_sec_head_text</item>
+    </style>
+
+    <style name="ListSecondaryDetails">
+        <item name="android:textSize">@dimen/list_sec_body_text</item>
+    </style>
+
+    <style name="VisitColorBar">
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_width">8dp</item>
+        <item name="android:layout_height">20dp</item>
+    </style>
+
+    <style name="ActivityColorBar">
+        <item name="android:layout_width">8dp</item>
+        <item name="android:layout_height">20dp</item>
+    </style>
+
+    <!-- Visits -->
+    <style name="VisitReportedLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingRight">@dimen/visit_label_padding</item>
+    </style>
+
+    <style name="VisitReportedDetails">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/visit_details_text</item>
+    </style>
+
+    <style name="VisitReportedTopics" parent="Widget.AppCompat.Spinner.DropDown">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/visit_details_text</item>
+    </style>
+
+</resources>

@@ -1,0 +1,25 @@
+.row
+  .col-md-6
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          Edycja osoby
+      .panel-body
+        = form_for(@person) do |f|
+          = app_error_messages(f.object)
+          = rw_hidden_back_url
+          .row
+            .col-md-6
+              = rwf_select f, :collab, @collab_list, { include_blank: true, rw_required: true }
+            .col-md-6
+              = rwf_select f, :person_title_id, @person_titles, { include_blank: true, rw_required: true }
+          .row
+            .col-md-6
+              = rwf_text_field f, :first_name, rw_required: true
+            .col-md-6
+              = rwf_text_field f, :last_name, rw_required: true
+          = rwf_check_box f, :unknown_name
+
+          .text-right
+            = link_to "Anuluj", redirect_back_url, class: "rwc-RedirectBack btn btn-link"
+            = f.submit "Zapisz", class: "btn btn-primary"

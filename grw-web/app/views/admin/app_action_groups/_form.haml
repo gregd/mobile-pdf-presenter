@@ -1,0 +1,31 @@
+.row.rwc-AppActionGroupList{ :id => dom_id(group) }
+  - if group.errors.any?
+    .col-xs-12
+      = app_error_messages(group)
+  = form_for [:admin, group], :html => { :remote => true } do |f|
+    .col-xs-1
+      - if group.new_record?
+        New
+      - else
+        ID
+        = group.id
+        %br
+        - if group.app_menu_items.count > 0
+          = link_to "count #{group.app_menu_items.count}", admin_app_menu_items_path("app_menu_item_search[app_action_group_id]": group.id)
+        - else
+          ZERO
+    .col-xs-2
+      = f.label :app_module_id, "Moduł"
+      = f.select :app_module_id, @modules, { include_blank: true }
+    .col-xs-3
+      = f.label :name, "Krótka nazwa"
+      = f.text_field :name
+    .col-xs-4
+      = f.label :description, "Pełny opis"
+      = f.text_area :description
+    .col-xs-1
+      = f.submit "Zapisz", :data => { :disable_with => "Wysyłam..." }
+    .col-xs-1
+      - if group.can_destroy?
+        = link_to "Usuń", admin_app_action_group_path(group),
+          { :method => :delete, :remote => true, :data => { :confirm => "Czy na pewno chcesz usunąć tą grupę?" } }

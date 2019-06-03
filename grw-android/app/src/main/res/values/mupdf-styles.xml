@@ -1,0 +1,5 @@
+<resources>
+    <style name="MuPdfTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen" >
+        <item name="android:windowBackground">@drawable/mupdf_tiled_background</item>
+   </style>
+</resources>

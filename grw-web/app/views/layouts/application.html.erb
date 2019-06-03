@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= content_for?(:window_title) ? content_for(:window_title) : "Example Web" %></title>
+  <%= csrf_meta_tags %>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+  <link href="/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= growlyflash_static_notices %>
+  <%= javascript_include_tag 'application' %>
+</head>
+
+<body class="<%= content_for?(:body_classes) ? content_for(:body_classes) : "" %> <%= app_body_classes %>">
+
+  <div class="navbar navbar-inverse bg-indigo header-highlight-2">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"><img src="/assets/images/grw-logo-white.svg" alt=""></a>
+
+      <ul class="nav navbar-nav visible-xs-block">
+        <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+        <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="navbar-collapse collapse" id="navbar-mobile">
+      <ul class="nav navbar-nav">
+        <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+      </ul>
+
+      <p class="navbar-text navbar-text-title"><%= content_for?(:content_title) ? content_for(:content_title) : app_account_name %></p>
+
+      <ul class="nav navbar-nav navbar-right">
+        <%= render "shared/user_navbar_menu" %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-container">
+    <div class="page-content">
+      <div class="sidebar sidebar-main sidebar-default">
+        <div class="sidebar-content">
+
+          <div class="sidebar-category sidebar-category-visible">
+            <div class="category-content no-padding">
+              <ul class="navigation navigation-main navigation-accordion">
+                <%= render "shared/user_sidebar_menu" %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-wrapper">
+        <%= content_for(:content_header) %>
+        <div class="content">
+          <%= yield %>
+
+          <div class="footer text-muted">
+            &copy; Copyright 2016 <a href="http://www.example.com" target="_blank">Master Chief</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

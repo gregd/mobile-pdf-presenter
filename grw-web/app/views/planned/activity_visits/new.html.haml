@@ -1,0 +1,32 @@
+.row
+  .col-md-8
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          Planowanie nowej wizyty
+      .panel-body
+        = form_for(@visit, url: planned_activity_visits_path) do |f|
+          = rw_hidden_back_url
+          = app_error_messages(f.object)
+          = f.hidden_field :org_unit_id
+          = f.hidden_field :address_id
+          = f.hidden_field :person_id
+          .row
+            .col-md-6
+              .form-group
+                = f.text_field :activity_on, class: "form-control datepicker", placeholder: "data wizyty", data: { provide: "datepicker" }
+              .form-group
+                = rwf_field f, :text_area, :comments
+            .col-md-6
+              %p
+                = @visit.org_unit.presenter.view_name
+                %br
+                = @visit.address.presenter.view_short
+
+                - if @visit.person
+                  %br
+                  = @visit.person.presenter.view_name
+
+          .text-right
+            = link_to "Anuluj", redirect_back_url, class: "rwc-RedirectBack btn btn-link"
+            = f.submit "Zapisz", class: "btn btn-primary"

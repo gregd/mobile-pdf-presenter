@@ -1,0 +1,60 @@
+.panel.panel-flat
+  .panel-heading
+    = form_tag({}, { method: "get" }) do
+      %label Role set
+      = select_tag :role_set_id, options_for_select(@role_sets, @selected_role_set_id), include_blank: true
+
+    .heading-elements
+      %ul.list-inline.heading-text
+        %li
+          = link_to "New role", new_admin_app_role_path
+
+  %table.table.table-condensed.table-striped.table-hover.rwc-AdminAppRolesList
+    %tr
+      %th ID
+      %th Set
+      %th Position
+      %th Name
+      %th.rwc-RotateCell
+        %div UR count
+      %th.rwc-RotateCell
+        %div User admin
+      %th.rwc-RotateCell
+        %div First user
+      %th.rwc-RotateCell
+        %div Default
+      %th.rwc-RotateCell
+        %div cap_mobile_app
+      %th.rwc-RotateCell
+        %div cap_presenter
+      %th.rwc-RotateCell
+        %div cap_location
+      %th.rwc-RotateCell
+        %div cap_projects
+      %th.rwc-RotateCell
+        %div cap_crm
+      %th
+    - @app_roles.each do |r|
+      %tr
+        %td= r.id
+        %td= r.app_role_set.name
+        %td= r.position
+        %td= r.name
+        %td= r.user_roles.count
+        %td= r.user_admin_role? ? "✓" : ""
+        %td= r.first_user_role? ? "✓" : ""
+        %td= r.default_role? ? "✓" : ""
+        %td= r.cap_mobile_app? ? "✓" : ""
+        %td= r.cap_presenter? ? "✓" : ""
+        %td= r.cap_location? ? "✓" : ""
+        %td= r.cap_projects? ? "✓" : ""
+        %td= r.cap_crm? ? "✓" : ""
+        %td
+          = link_to "edit", edit_admin_app_role_path(r)
+
+:javascript
+  $(function() {
+    $("#role_set_id").change(function() {
+      $(this.form).submit();
+    });
+  });

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 40 = 16 + 24 (status bar height) -->
+    <dimen name="main_nav_top_padding">40dp</dimen>
+    <dimen name="main_nav_vertical_spacing">16dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="margin_main">8dp</dimen>
+    <dimen name="section_margin_top_size">16dp</dimen>
+    <dimen name="section_label_size">12sp</dimen>
+    <dimen name="section_body_size">14sp</dimen>
+
+    <dimen name="list_main_head_text">16sp</dimen>
+    <dimen name="list_main_body_text">14sp</dimen>
+    <dimen name="list_sec_head_text">14sp</dimen>
+    <dimen name="list_sec_body_text">13sp</dimen>
+    <dimen name="list_message_head_text">18sp</dimen>
+    <dimen name="list_message_body_text">16sp</dimen>
+
+    <dimen name="page_head_text_size">16sp</dimen>
+    <dimen name="page_body_text_size">14sp</dimen>
+    <dimen name="page_small_text_size">13sp</dimen>
+
+    <dimen name="visit_label_padding">8dp</dimen>
+    <dimen name="visit_details_text">18sp</dimen>
+
+    <dimen name="target_label_width">16dp</dimen>
+
+    <dimen name="spec_abbr_label_width">40dp</dimen>
+
+    <dimen name="loc_time_dur_size">18sp</dimen>
+
+    <dimen name="checkin_btn_size">18sp</dimen>
+    <dimen name="checkin_message_size">16sp</dimen>
+    <dimen name="checkin_map_height">250dp</dimen>
+    <dimen name="checkin_map_width">350dp</dimen>
+
+    <dimen name="picture_width_height">100dp</dimen>
+    <dimen name="picture_grid_margin">8dp</dimen>
+    <dimen name="picture_grid_width">108dp</dimen>
+    <!-- 108 = 100 (image) + 2 * 4 (padding) -->
+
+    <!-- h = w / sqrt(2) -->
+    <dimen name="repo_cover_width">120dp</dimen>
+    <dimen name="repo_cover_height">85dp</dimen>
+
+</resources>

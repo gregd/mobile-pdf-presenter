@@ -1,0 +1,52 @@
+.panel.panel-flat
+  .panel-heading
+    .row
+      .col-md-3
+        %h6.panel-title
+          App Events
+      .col-md-9
+        = form_for(@filter, url: admin_report_tracker_app_events_path, html: { method: :get, class: "form-inline" }) do |f|
+          .rwc-FilterParams
+            = f.text_field :account, class: "form-control rwc-AdminAppEventFilter-text", placeholder: "account"
+            = f.text_field :device_ui, class: "form-control rwc-AdminAppEventFilter-text", placeholder: "device"
+            = f.text_field :screen, class: "form-control rwc-AdminAppEventFilter-text", placeholder: "screen"
+            = f.text_field :category, class: "form-control rwc-AdminAppEventFilter-text", placeholder: "category"
+            = f.text_field :action, class: "form-control rwc-AdminAppEventFilter-text", placeholder: "action"
+            = f.text_field :start_on, class: "form-control datepicker", placeholder: "start on", data: { provide: "datepicker" }
+            = f.text_field :end_on, class: "form-control datepicker", placeholder: "end on", data: { provide: "datepicker" }
+            = submit_tag "Apply"
+  .panel-body
+    %table.rwc-AdminDiagTable
+      %tr
+        %th account
+        %th device
+        %th user
+        %th created_at
+        %th app_version
+        %th screen
+        %th category
+        %th action
+        %th label
+        %th value
+      - @events.each do |e|
+        %tr
+          %td= e.account.subdomain
+          %td= e.mobile_device.unique_identifier
+          %td= e.user_role.user.full_name
+          %td.rwc-AdminDiagTable-noBreak
+            = l e.created_at, format: :pdb
+          %td= e.app_version
+          %td= e.screen
+          %td= e.category
+          %td= e.action
+          %td= e.label
+          %td= e.value
+
+    = will_paginate @events, renderer: BootstrapPagination::Rails, class: "pagination pagination-flat"
+
+:javascript
+  $(function() {
+    $('.datepicker').datepicker().on('hide', function (ev) {
+      $(this.form).submit();
+    });
+  });

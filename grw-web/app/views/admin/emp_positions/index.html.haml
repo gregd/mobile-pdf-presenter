@@ -1,0 +1,40 @@
+.panel.panel-flat
+  .panel-heading
+    %h6.panel-title Stanowiska
+    .heading-elements
+      %ul.list-inline.heading-text
+        %li
+          = link_to "Dodaj nową pozycję", new_admin_emp_position_path
+  %table.table
+    %tr
+      %th path
+      %th name
+      %th roles
+      %th rid
+      %th node name
+      %th
+    - @emps.each do |r|
+      %tr
+        %td= r.path
+        %td= "#{'&nbsp;' * 8 * (r.depth - 1)} #{r.name}".html_safe
+        %td
+          - r.user_roles.each do |ur|
+            = link_to "#{ur.user.full_name} - #{ur.app_role.name}", admin_user_path(ur.user)
+            %br
+        %td= r.user_role_id
+        %td= r.node_name
+        %td
+          %ul.icons-list
+            %li.dropdown
+              %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+                %i.icon-menu9
+              %ul.dropdown-menu.dropdown-menu-right
+                %li.dropdown-header
+                  Akcje
+                %li
+                  = link_to "edit", edit_admin_emp_position_path(r)
+                %li
+                  = link_to "add child", new_admin_emp_position_path(parent_id: r.id)
+                - if r.can_destroy?
+                  %li
+                    = link_to "destroy", admin_emp_position_path(r), { method: :delete, data: { confirm: "Czy jesteś pewień?" } }

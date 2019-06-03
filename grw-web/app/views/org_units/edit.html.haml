@@ -1,0 +1,18 @@
+.row
+  .col-md-6
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          Edycja danych firmy
+      .panel-body
+        = form_for(@org_unit) do |f|
+          = rw_hidden_back_url
+          = app_error_messages(f.object)
+          = rwf_text_field f, :name
+          = rwf_select f, :collab, @collab_list, { include_blank: true }
+          = rwf_text_field f, :tax_nip
+
+          .text-right
+            = link_to "Anuluj", redirect_back_url, class: "rwc-RedirectBack btn btn-link"
+            = f.submit "Zapisz", class: "btn btn-primary"
+

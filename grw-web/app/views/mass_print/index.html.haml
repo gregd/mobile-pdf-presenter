@@ -1,0 +1,38 @@
+.row
+  .col-md-6
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          Wydruk etykiet na koperty
+      .panel-body
+        = form_for(@print, url: pdf_mass_print_path, method: :post) do |f|
+          = app_error_messages(f.object)
+          = rw_hidden_back_url
+          - if @print.any_text?
+            = rwf_field f, :text_area, :text
+          - else
+            = f.hidden_field :person_search_id
+            = f.hidden_field :org_unit_search_id
+            - @print.receivers(3).each do |p,ou,a|
+              %p
+                = p.first_name
+                = p.last_name
+                %br
+                = ou.name
+                %br
+                = a.street
+                = a.house_nr
+                - if a.flat_nr
+                  \/
+                  = a.flat_nr
+                %br
+                = a.zipcode
+                = a.city
+                %br
+                = a.country
+            %p
+              \...
+
+          .text-right
+            = f.submit "Pokaż PDF", class: "btn btn-primary"
+

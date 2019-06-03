@@ -1,0 +1,60 @@
+.panel.panel-default
+  .panel-heading
+    .row
+      .col-md-3
+        %h6.panel-title
+          Odbiorcy prezentacji
+      .col-md-9
+        - if @report
+          = form_tag({}, { method: :get, class: "form-inline" }) do
+            .rwc-FilterParams
+              .rwc-FilterParams-group
+                = select_tag :tracker_item_id, options_for_select(@items.map {|i| [i.base_name, i.id] }, @item.id), class: "form-control"
+
+              .rwc-FilterParams-group
+                = label_tag :start_on, "Od"
+                = text_field_tag :start_on, @date_range.start_on, class: "form-control datepicker", data: { provide: "datepicker" }
+
+              .rwc-FilterParams-group
+                = label_tag :end_on, "Do"
+                = text_field_tag :end_on, @date_range.end_on, class: "form-control datepicker", data: { provide: "datepicker" }
+
+              - if @team.size > 1
+                .rwc-FilterParams-group
+                  = select_tag :ua_id, options_for_select(@team.map {|a| [("- " * (a.relative_level - 1)) + " #{a.node_name}", a.id]}, @selected_ua.try(:id)),
+                      include_blank: true, class: "form-control"
+  - if @report
+    .table-responsive
+      %table.table.table-xxs.table-bordered.table-striped.table-hover
+        %tr
+          %th Lp.
+          %th pokazana w n %
+          %th Odbiorca prezentacji
+        - @report.each_with_index do |r, index|
+          %tr
+            %td.number= index + 1
+            %td.number= r[:progress]
+            %td
+              - if r[:ob]
+                = link_to_trackable r[:ob]
+              - else
+                odbiorca slajdów niewybrany
+
+  - else
+    .panel-body
+      %h4 Brak prezentacji
+
+%ul
+  %li Pokazana w n % - wartość ta jest wyliczona na podstawie całej historii oglądania slajdów przez danego odbiorcę. Filtr po dacie lub prezenterze nie zmienia tej wartości.
+  %li Liczba odbiorów slajdów może się nie pokrywać z liczbą sesji, tzn jeśli slajdy były pokazywane na kilku wizytach tej samej osobie, to na tym raporcie ta osoba będzie pokazana tylko raz.
+
+:javascript
+  $(function() {
+    $("#tracker_item_id, #ua_id").change(function() {
+      $(this.form).submit();
+    });
+
+    $('.datepicker').datepicker().on('hide', function (ev) {
+      $(this.form).submit();
+    });
+  });

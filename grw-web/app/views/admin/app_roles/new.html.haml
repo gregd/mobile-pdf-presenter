@@ -1,0 +1,21 @@
+.row
+  .col-md-5
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          - if @role.new_record?
+            New role
+          - else
+            Edit role
+      .panel-body
+        = form_for([:admin, @role]) do |f|
+          = rw_hidden_back_url
+          = app_error_messages(f.object)
+          = rwf_select f, :app_role_set_id, @role_sets, { include_blank: true }
+          = rwf_text_field f, :position
+          = rwf_check_box  f, :user_admin_role
+          = rwf_check_box  f, :first_user_role
+          = rwf_check_box  f, :default_role
+          = rwf_text_field f, :name
+          .text-right
+            = f.submit class: "btn btn-primary"

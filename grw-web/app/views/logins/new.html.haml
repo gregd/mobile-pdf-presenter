@@ -1,0 +1,29 @@
+- content_for(:body_classes, "login-container")
+= form_tag(login_path) do |f|
+  .panel.panel-body.login-form
+    .text-center
+      %h5.content-group
+        Zaloguj się na swoje konto
+        %small.display-block
+          Podaj firmowy adres e-mail i hasło
+    - if @message
+      .alert.alert-danger.no-border
+        = @message
+    .form-group.has-feedback.has-feedback-left
+      %input.form-control(name="email" type="text" placeholder="E-mail" required value="#{@user_email}")
+      .form-control-feedback
+        %i.icon-user.text-muted
+
+    .form-group.has-feedback.has-feedback-left
+      %input.form-control(name="password" type="password" placeholder="Hasło" required autofocus)
+      .form-control-feedback
+        %i.icon-lock2.text-muted
+
+    .form-group
+      %button.btn.bg-pink-400.btn-block(type="submit")
+        Zaloguj
+        %i.icon-circle-right2.position-right
+
+    .text-center
+      = link_to "Nie znasz hasła?", reset_password_path
+

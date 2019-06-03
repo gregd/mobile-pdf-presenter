@@ -1,0 +1,40 @@
+.panel.panel-flat
+  .panel-heading
+    %h6.panel-title Stanowiska
+    .heading-elements.not-collapsible
+      %ul.list-inline.heading-text
+        %li
+          = link_to "Dodaj nowe stanowisko", new_emp_position_path
+  %table.table.table-condensed.table-striped.table-hover
+    %tr
+      %th Nazwa stanowiska
+      %th Przypisane osoby
+      %th Akcje
+    - @emps.each do |r|
+      %tr
+        %td
+          %div{ class: "rwc-UserLevel-#{r.depth}" }
+            = r.name
+        %td
+          - r.user_roles.each do |ur|
+            = link_to "#{ur.user.full_name} - #{ur.app_role.name}", user_path(ur.user)
+            %br
+        %td
+          %ul.icons-list
+            %li.dropdown
+              %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+                %i.icon-menu9
+              %ul.dropdown-menu.dropdown-menu-right
+                %li.dropdown-header
+                  Akcje
+                %li
+                  = link_to "Edycja", edit_emp_position_path(r)
+                %li
+                  = link_to "Dodaj podrzędne", new_emp_position_path(parent_id: r.id)
+                %li
+                  = link_to "Przypisz osobę", new_user_role_path(emp_position_id: r.id)
+                %li
+                  = link_to "Dodaj nową osobę", new_user_path(emp_position_id: r.id)
+                - if r.can_destroy?
+                  %li
+                    = link_to "Usuń", emp_position_path(r), { method: :delete, data: { confirm: "Czy jesteś pewień?" } }

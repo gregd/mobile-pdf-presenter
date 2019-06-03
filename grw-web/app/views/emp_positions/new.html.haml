@@ -1,0 +1,18 @@
+.row
+  .col-md-5
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          - if @emp_position.new_record?
+            Nowe stanowisko
+          - else
+            Edycja stanowiska
+      .panel-body
+        = form_for(@emp_position) do |f|
+          = rw_hidden_back_url
+          = app_error_messages(f.object)
+          = rwf_select f, :parent_id, @parents, { include_blank: true }
+          = rwf_text_field f, :name
+          .text-right
+            = link_to "Anuluj", redirect_back_url, class: "rwc-RedirectBack btn btn-link"
+            = f.submit "Zapisz", class: "btn btn-primary"

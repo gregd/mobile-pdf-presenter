@@ -1,0 +1,17 @@
+- cache("user_sidebar_menu_#{@current_user_role.app_role_id}_#{@app_menu_item_id}") do
+  - current_top_menu_id = AppMenuItem.find(@app_menu_item_id).top_menu_id
+  - AppMenuItem::AsBuilder.find_items_for(@current_user_role.app_role_id).each do |top_menu, sub_menus|
+    - top_menu_active = top_menu.id == @app_menu_item_id || top_menu.id == current_top_menu_id
+    %li{ class: top_menu_active ? "active" : "" }
+      %a{ href: top_menu.action.present? ? url_for(controller: "/" + top_menu.controller, action: top_menu.action) : "#" }
+        - if top_menu.icon_name.present?
+          %i{ class: top_menu.icon_name }
+        %span= top_menu.name
+      - if sub_menus.size > 0
+        %ul
+          - sub_menus.each do |menu|
+            %li{ class: menu.id == @app_menu_item_id ? "active" : "" }
+              = link_to controller: "/" + menu.controller, action: menu.action do
+                - if menu.icon_name.present?
+                  %i{ class: menu.icon_name }
+                = menu.name

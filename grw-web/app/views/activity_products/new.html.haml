@@ -1,0 +1,20 @@
+.row
+  .col-md-5
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          - if @product.new_record?
+            Nowy produkt
+          - else
+            Edycja produktu
+      .panel-body
+        = form_for(@product) do |f|
+          = rw_hidden_back_url
+          = app_error_messages(f.object)
+          = rwf_select f, :activity_product_group_id, @groups, { include_blank: true }
+          = rwf_text_field f, :name, autofocus: true
+          = rwf_text_field f, :abbr
+          .text-right
+            = link_to "Anuluj", redirect_back_url, class: "rwc-RedirectBack btn btn-link"
+            = f.submit @product.new_record? ? "Dodaj" : "Zapisz", class: "btn btn-primary"
+

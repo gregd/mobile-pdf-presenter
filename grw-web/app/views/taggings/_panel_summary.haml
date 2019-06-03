@@ -1,0 +1,17 @@
+.panel.panel-flat
+  .panel-body
+    - grouped.each do |tag_group, taggings|
+      - taggings.each do |g|
+        = g.presenter.view_as_label
+      &nbsp;
+
+    %ul.icons-list.pull-right
+      %li.dropdown
+        %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+          %i.icon-menu9
+        %ul.dropdown-menu.dropdown-menu-right
+          %li.dropdown-header
+            Akcje
+          - grouped.each do |tag_group, _|
+            %li
+              = link_to "Edytuj #{tag_group.abbr}", taggings_edit_group_path(taggable_type: taggable.class.model_name, taggable_id: taggable, tag_group_id: tag_group)

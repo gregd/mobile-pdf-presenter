@@ -1,0 +1,36 @@
+.panel.panel-flat
+  .panel-heading
+    %h6.panel-title
+      Łączenie statystyk
+  .table-responsive
+    %table.table.table-xxs.table-bordered.table-striped.table-hover.rwc-TrackerItemsList
+      %tr
+        %th Id
+        %th Nazwa pliku
+        %th Rodzaj
+        %th Stron
+        %th Sekund
+        %th Wersje
+      - @items.each do |i|
+        %tr
+          %td= i.id
+          %td= i.base_name
+          %td= repo_file_mime_type(i.mime_type)
+          %td= i.pages
+          %td= i.seconds
+          - if i.tracker_files.size > 0
+            %td
+              %table.rwc-TrackerItemsList-files
+                - i.tracker_files.each do |f|
+                  %tr
+                    %td.rwc-TrackerItemsList-rev
+                      = repo_file_rev_abbr(f.git_hash)
+                    %td
+                      = f.rel_path
+                      %div{ class: "rwjs-TrackerItemsList-form-#{ f.id }" }
+                    %td.rwc-TrackerItemsList-actions
+                      = link_to "połącz z", link_repo_tracker_file_path(f), { remote: true }
+          - else
+            %td
+              .rwc-TrackerItemsList-destroy
+                = link_to "usuń", repo_tracker_item_path(i), { method: "delete", data: { confirm: "Czy jesteś pewien?" } }

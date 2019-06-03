@@ -1,0 +1,15 @@
+.row
+  .col-md-6
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          Edycja konfiguracji
+          = @config.account.subdomain
+      .panel-body
+        = form_for([:admin, @config]) do |f|
+          = rw_hidden_back_url
+          = app_error_messages(f.object)
+          = rwf_text_field f, :daily_report_emails, autofocus: true,
+                value: f.object.daily_report_emails.join(", ")
+          .text-right
+            = f.submit "Update Config", class: "btn btn-primary"

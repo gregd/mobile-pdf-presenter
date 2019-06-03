@@ -1,0 +1,7 @@
+.alert.alert-danger.no-border
+  .text-semibold
+    = t 'errors.template.header', count: ob.errors.count, model: ob.class.model_name.human
+  %ul.list-condensed
+    - ob.errors.full_messages.each do |msg|
+      %li
+        = msg

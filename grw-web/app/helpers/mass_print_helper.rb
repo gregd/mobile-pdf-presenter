@@ -1,0 +1,2 @@
+module MassPrintHelper
+end

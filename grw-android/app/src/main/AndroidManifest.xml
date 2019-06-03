@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.grw.mobi">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <supports-screens
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="false" />
+
+    <uses-feature
+        android:name="android.software.app_widgets"
+        android:required="false" />
+
+    <application
+        android:name=".GrwApplication"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <receiver
+            android:name=".ui.Widget"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider" />
+        </receiver>
+
+        <activity
+            android:name=".ui.StartActivity"
+            android:label="@string/app_name_long">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.LoginActivity"
+            android:label="@string/login_title" />
+        <activity
+            android:name=".ui.FullSyncActivity"
+            android:label="@string/full_sync_title" />
+        <activity
+            android:name=".ui.InfoActivity"
+            android:label="@string/info_title" />
+        <activity
+            android:name=".ui.UpgradeActivity"
+            android:label="@string/upgrade_title" />
+        <activity
+            android:name=".ui.UpgradePlayServicesActivity"
+            android:label="@string/app_play_services_title" />
+        <activity android:name=".ui.RepoBrowserActivity" />
+        <activity android:name=".ui.RepoViewHtmlActivity" />
+        <activity
+            android:name=".ui.RepoViewVideoActivity"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity
+            android:name="com.artifex.mupdfdemo.MuPDFActivity"
+            android:theme="@style/MuPdfTheme" />
+        <activity
+            android:name="com.artifex.mupdfdemo.OutlineActivity"
+            android:label="@string/outline_title"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+        <activity
+            android:name=".ui.CheckinActivity"
+            android:label="@string/locations_title" />
+        <activity
+            android:name=".ui.LocationsActivity"
+            android:label="@string/loc_history_title" />
+        <activity
+            android:name=".ui.GeneralCommentActivity"
+            android:label="@string/general_comment_title" />
+
+        <service android:name=".systemservices.LoginService" />
+        <service android:name=".systemservices.SyncService" />
+        <service android:name=".systemservices.UpgradeService" />
+        <service android:name=".systemservices.TransitionsService" />
+        <service android:name=".systemservices.GeofencesService" />
+
+        <receiver android:name=".systemservices.SyncAlarmReceiver" />
+        <receiver android:name=".systemservices.OnBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".systemservices.TimeChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".systemservices.LocAlarmReceiver"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver
+            android:name=".systemservices.TransitionsReceiver"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver
+            android:name=".systemservices.LocUpdateReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <service
+            android:name=".systemservices.LocTrackerService"
+            android:exported="false" />
+        <service
+            android:name=".systemservices.LocHandlerService"
+            android:exported="false" />
+        <service
+            android:name=".systemservices.LocTimeoutService"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/db_card_recent_presentations"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent" >
+
+    <RelativeLayout
+        android:padding="8dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/db_recent_presentations_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/db_recent_presentations_title" />
+
+        <TextView
+            android:id="@+id/db_recent_presentations_context"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/db_recent_presentations_title"
+            tools:text="Wybrany odbiorca: LG Jan Kowalski" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/db_recent_presentations_list"
+            android:layout_below="@+id/db_recent_presentations_context"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/db_recent_presentations_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/db_recent_presentations_list"
+            android:layout_alignParentLeft="true"
+            android:text="@string/db_recent_presentations_btn"
+            style="?android:attr/borderlessButtonStyle" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
+

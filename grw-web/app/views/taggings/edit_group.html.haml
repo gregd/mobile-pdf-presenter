@@ -1,0 +1,29 @@
+.row
+  .col-md-6
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          Edycja znaczników przypisanych do
+          %strong= @taggable.presenter.view_name
+          w kategorii
+          %strong= @group.abbr
+      .panel-body
+        = form_tag(taggings_update_group_path, method: "patch") do |f|
+          = rw_hidden_back_url
+          = hidden_field_tag :taggable_type, @taggable.class.name
+          = hidden_field_tag :taggable_id, @taggable.id
+          = hidden_field_tag :tag_group_id, @group.id
+          .form-group
+            = select_tag :tags_ids, options_for_select(@tags, @selected),
+                { multiple: @group.has_uniqueness ? false : true,
+                  include_blank: @group.has_uniqueness ? true : false,
+                  data: { placeholder: @group.has_uniqueness ? "Wybierz znacznik" : "Wprowadź znaczniki"} }
+
+          .text-right
+            = link_to "Anuluj", redirect_back_url, class: "rwc-RedirectBack btn btn-link"
+            = submit_tag "Zapisz", class: "btn btn-primary"
+
+:javascript
+  $(function() {
+    $('#tags_ids').select2({ width: "100%", allowClear: true });
+  });

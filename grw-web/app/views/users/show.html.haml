@@ -1,0 +1,114 @@
+.row
+  .col-md-6
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          = @user.full_name
+        .heading-elements.not-collapsible
+          %ul.list-inline.heading-text
+            %li
+              = link_to "Edycja danych", edit_user_path(@user)
+            %li
+              = link_to "Usuń", user_path(@user), method: :delete, data: { confirm: "Czy jesteś pewien aby dezaktywować konto?" }
+      %table.table.table-striped.table-hover
+        %tr
+          %th= User.human_attribute_name :email
+          %td= @user.email
+        %tr
+          %th= User.human_attribute_name :phone
+          %td= @user.phone
+        %tr
+          %th= User.human_attribute_name :created_at
+          %td= l @user.created_at
+        %tr
+          %th= User.human_attribute_name :updated_at
+          %td= l @user.updated_at
+
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          Role użytkownika
+        .heading-elements.not-collapsible
+          %ul.list-inline.heading-text
+            %li
+              = link_to "Dodaj rolę", new_user_role_path(user_id: @user.id)
+      %table.table.table-striped.table-hover
+        %tr
+          %th Uprawnienia
+          %th Stanowisko
+          %th Obszar
+          %th
+        - @user.user_roles.each do |r|
+          %tr
+            %td
+              = r.app_role.name
+            %td
+              - if r.emp_position_id
+                - if r.emp_position.parent_id
+                  = r.emp_position.parent.name
+                  \>
+                = r.emp_position.name
+            %td
+              - if r.geo_area_id
+                = r.geo_area.name
+            %td
+              %ul.icons-list
+                %li.dropdown
+                  %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+                    %i.icon-menu9
+                  %ul.dropdown-menu.dropdown-menu-right
+                    %li.dropdown-header
+                      Akcje
+                    %li
+                      = link_to "Edycja", edit_user_role_path(r)
+                    %li
+                      = link_to "Usuń", user_role_path(r), { method: :delete, data: { confirm: "Czy jesteś pewień?" } }
+
+    - ha = @user.home_user_address
+    - addr = ha&.address
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          Adresy
+        .heading-elements.not-collapsible
+          %ul.list-inline.heading-text
+            - if ha.nil?
+              %li
+                = link_to "Dodaj adres", new_user_address_path(user_id: @user.id)
+      - if ha
+        %table.table.table-striped.table-hover
+          %tr
+            %th Typ
+            %th Dane
+            %th Mapa
+            %th
+          %tr
+            %td
+              Domowy
+            %td
+              = addr.zipcode
+              = addr.city
+              = addr.street
+              = addr.house_nr
+              = addr.flat_nr
+            %td
+              - if addr.has_location?
+                = rw_link_to_google_maps(addr.lat, addr.lng, "pokaż")
+              - else
+                brak
+            %td
+              %ul.icons-list
+                %li.dropdown
+                  %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+                    %i.icon-menu9
+                  %ul.dropdown-menu.dropdown-menu-right
+                    %li.dropdown-header
+                      Akcje
+                    %li
+                      = link_to "Edycja", edit_user_address_path(ha)
+                    %li
+                      = link_to "Usuń", user_address_path(ha), { method: :delete, data: { confirm: "Czy jesteś pewień?" } }
+      - else
+        .panel-body
+          brak
+

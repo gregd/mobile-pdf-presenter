@@ -1,0 +1,14 @@
+.row
+  .col-md-6
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          Edycja miejsca pracy
+      .panel-body
+        = form_for(@person_job) do |f|
+          = app_error_messages(f.object)
+          = rw_hidden_back_url
+          = rwf_select f, :job_title_id, @job_titles, { include_blank: true }
+          .text-right
+            = link_to "Anuluj", redirect_back_url, class: "rwc-RedirectBack btn btn-link"
+            = f.submit "Zapisz", class: "btn btn-primary"

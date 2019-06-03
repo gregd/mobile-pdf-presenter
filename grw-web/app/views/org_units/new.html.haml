@@ -1,0 +1,106 @@
+.panel.panel-flat
+  .panel-heading
+    %h6.panel-title
+      Nowa firma i pierwszy pracownik
+  .panel-body
+    = form_for(@register, url: org_units_path) do |f|
+      = rw_hidden_back_url
+      = app_error_messages(f.object)
+      .row
+        .col-sm-6
+          .row
+            .col-xs-8
+              = rwf_text_field f, :org_name, autofocus: true, rw_required: true
+            .col-xs-4
+              = rwf_select f, :org_unit_collab, @collab_list, { include_blank: true, rw_required: true }
+          .row
+            .col-xs-3
+              = rwf_text_field f, :zipcode, rw_required: true
+            .col-xs-5
+              = rwf_text_field f, :city, rw_required: true
+            .col-xs-4
+              = rwf_text_field f, :country, rw_required: true
+
+          .row
+            .col-xs-8
+              = rwf_text_field f, :street, rw_required: true
+            .col-xs-2
+              = rwf_text_field f, :house_nr
+            .col-xs-2
+              = rwf_text_field f, :flat_nr
+
+          .row
+            .col-xs-8
+              = rwf_text_field f, :comments
+            .col-xs-4
+              = rwf_text_field f, :tax_nip
+
+          .row
+            .col-xs-5
+              = rwf_text_field f, :org_unit_phone
+            .col-xs-7
+              = rwf_text_field f, :org_unit_email
+
+          = rwf_text_field f, :org_unit_www
+
+          - @org_unit_tag_groups.each do |group, tags|
+            .form-group
+              = label_tag group.name
+              = select_tag "org_unit_register[org_unit_tags][#{group.id}][ids][]",
+                  options_for_select(tags.map {|t| [t.name, t.id]}, selected: @register.org_unit_tags[group.id]),
+                  class: "form-control rwc-OrgUnitRegister-tags",
+                  include_blank: group.has_uniqueness ? true : false,
+                  multiple: group.has_uniqueness ? false : true
+
+        .col-sm-6
+          = rwf_check_box f, :first_employee
+          .rwc-OrgUnitRegister-firstEmployee
+            .row
+              .col-xs-4
+                = rwf_select f, :person_title_id, @person_titles, { include_blank: true, rw_required: true }
+              .col-xs-4
+                = rwf_select f, :job_title_id, @job_titles, { include_blank: true, rw_required: true }
+              .col-xs-4
+                = rwf_select f, :person_collab, @collab_list, { include_blank: true, rw_required: true }
+
+            .row
+              .col-xs-4
+                = rwf_text_field f, :first_name, rw_required: true
+              .col-xs-5
+                = rwf_text_field f, :last_name, rw_required: true
+              .col-xs-2
+                = rwf_check_box f, :unknown_name
+
+            .row
+              .col-xs-5
+                = rwf_text_field f, :person_phone
+              .col-xs-7
+                = rwf_text_field f, :person_email
+            = rwf_text_field f, :person_www
+
+            - @person_tag_groups.each do |group, tags|
+              .form-group
+                = label_tag group.name
+                = select_tag "org_unit_register[person_tags][#{group.id}][ids][]",
+                    options_for_select(tags.map {|t| [t.name, t.id]}, selected: @register.person_tags[group.id]),
+                    class: "form-control rwc-OrgUnitRegister-tags",
+                    include_blank: group.has_uniqueness ? true : false,
+                    multiple: group.has_uniqueness ? false : true
+
+      .text-right
+        = link_to "Anuluj", redirect_back_url, class: "rwc-RedirectBack btn btn-link"
+        = f.submit "Dodaj", class: "btn btn-primary"
+
+:javascript
+  $(function() {
+    $("#org_unit_register_first_employee").change(function(event) {
+      if (event.target.checked) {
+        $(".rwc-OrgUnitRegister-firstEmployee").removeClass("is-hidden");
+      } else {
+        $(".rwc-OrgUnitRegister-firstEmployee").addClass("is-hidden");
+      }
+    }).change();
+
+    $('.rwc-OrgUnitRegister-tags').select2({ width: "100%", allowClear: true });
+
+  });

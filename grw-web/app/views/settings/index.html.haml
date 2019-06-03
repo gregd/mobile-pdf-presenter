@@ -1,0 +1,23 @@
+.row
+  .col-md-6
+    .panel.panel-flat
+      .panel-heading
+        %h6.panel-title
+          = @user.full_name
+        .heading-elements.not-collapsible
+          %ul.list-inline.heading-text
+            %li
+              = link_to "Zmień hasło", new_password_path
+      .table-responsive
+        %table.table
+          %tr
+            %th Email
+            %td= @user.email
+          %tr
+            %th Telefon
+            %td= @user.phone
+          %tr
+            %th Role
+            %td
+              = @roles.map {|r| r.name }.join(", ")
+

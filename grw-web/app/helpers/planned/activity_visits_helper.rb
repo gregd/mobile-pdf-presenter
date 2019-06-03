@@ -1,0 +1,2 @@
+module Planned::ActivityVisitsHelper
+end

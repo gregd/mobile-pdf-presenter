@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent" >
+
+    <Button android:text="@string/loc_btn_report"
+            android:id="@+id/loc_btn_report"
+            android:visibility="invisible"
+            android:minEms="@integer/checkin_btn_ems"
+            android:textSize="@dimen/checkin_btn_size"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    <ProgressBar
+            android:id="@+id/location_progress_bar"
+            style="?android:attr/progressBarStyle"
+            android:layout_alignParentLeft="true"
+            android:padding="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true" />
+    <TextView
+            android:id="@+id/location_message"
+            android:layout_toRightOf="@+id/loc_btn_report"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+    <org.osmdroid.views.MapView
+            android:id="@+id/map"
+            android:layout_below="@+id/location_progress_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/checkin_map_height" />
+
+    <TextView
+            android:id="@+id/loc_near_header"
+            android:layout_below="@+id/map"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:textSize="@dimen/checkin_message_size"
+            android:text="" />
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/loc_near_institutions"
+            android:orientation="vertical"
+            android:layout_below="@+id/loc_near_header"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+</RelativeLayout>
+
+
